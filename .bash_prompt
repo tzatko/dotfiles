@@ -114,9 +114,9 @@ fi;
 PS1="\[\033]0;\w\007\]";
 PS1+="\[${bold}\]";
 PS1+="\[${userStyle}\]\u"; # username
-PS1+="\[${white}\] at ";
+PS1+="\[${white}\]@";
 PS1+="\[${hostStyle}\]\h"; # host
-PS1+="\[${white}\] in ";
+PS1+="\[${white}\] : ";
 PS1+="\[${green}\]\w"; # working directory
 PS1+="\$(prompt_git_and_status \"${white} on ${violet}\")"; # Git repository details and $
 PS1+=" \[${reset}\]"; # and reset color
