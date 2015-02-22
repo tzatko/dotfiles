@@ -107,5 +107,8 @@ brew install apg
 # Install io.js
 #brew install iojs
 
+# Install generic colourizer
+brew install grc
+
 # Remove outdated versions from the cellar.
 brew cleanup
