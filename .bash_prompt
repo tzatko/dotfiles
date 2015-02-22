@@ -45,9 +45,9 @@ prompt_git_and_status() {
 	local branchName='';
 
   if [ $ps1_exit -eq 0 ]; then
-    ps1_status="${white}\$"
+    ps1_status="${3}"
   else
-    ps1_status="${red}\$"
+    ps1_status="${4}"
   fi
 
 	# Check if the current directory is in a Git repository.
@@ -56,11 +56,9 @@ prompt_git_and_status() {
 		dirty=$(git diff --quiet --ignore-submodules HEAD &>/dev/null; [ $? -eq 1 ]&& echo -e "*")
 		branchName=`git symbolic-ref -q --short HEAD`
 
-		[ -n "${s}" ] && s=" [${s}]";
-
-		printf "%s" "${1}${branchName}${blue}${dirty} "
+		printf "%s" "${1}${branchName}${2}${dirty} "
 	fi;
-  printf "%s" "${ps1_status}"
+  printf "%s" "${ps1_status}\$"
 }
 
 
@@ -86,7 +84,7 @@ PS1+="\[${white}\]@";
 PS1+="\[${hostStyle}\]\h"; # host
 PS1+="\[${white}\] : ";
 PS1+="\[${green}\]\w"; # working directory
-PS1+="\$(prompt_git_and_status \"${white} on ${violet}\")"; # Git repository details and $
+PS1+="\$(prompt_git_and_status \"\[${white}\] on \[${violet}\]\" \"\[${blue}\]\" \"\[${white}\]\" \"\[${red}\]\")"; # Git repository details and $
 PS1+=" \[${reset}\]"; # and reset color
 export PS1;
 
