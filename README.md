@@ -84,6 +84,18 @@ When setting up a new Mac, you may want to install some common [Homebrew](http:/
 Suggestions/improvements
 [welcome](https://github.com/jooray/dotfiles/issues)!
 
+## Improvements from Matthias's dotfiles
+
+* Customization for my needs (e.g. not using Sublime Text, going easy on some osx defaults)
+* Should work on Linux as well
+* Vagrant commands
+* Bash prompt - change the color of '$' in the prompt to red if last process exited with error
+* Customization of screen
+* Don't force en_US locale, this is per user (I set mine in ~/.extra)
+* cp_p command to copy with progress (uses rsync)
+* OS X hot corners adjusted my needs
+* Don't install JavaScript based stuff, install gpg and apg
+
 ## Authors
 
 Original: 
@@ -101,6 +113,7 @@ Modifications:
 
 ## Thanks to…
 
+* [Mathias Bynens](https://mathiasbynens.be/) and his [dotfiles repository](https://github.com/mathiasbynens/dotfiles)
 * @ptb and [his _OS X Lion Setup_ repository](https://github.com/ptb/Mac-OS-X-Lion-Setup)
 * [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
 * [Chris Gerke](http://www.randomsquared.com/) and his [tutorial on creating an OS X SOE master image](http://chris-gerke.blogspot.com/2012/04/mac-osx-soe-master-image-day-7.html) + [_Insta_ repository](https://github.com/cgerke/Insta)
