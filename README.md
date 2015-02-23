@@ -36,7 +36,7 @@ To update later on, just run that command again.
 
 ### Specify the `$PATH`
 
-If `~/.path` exists, it will be sourced along with the other files, before any feature testing (such as [detecting which version of `ls` is being used](https://github.com/jooray/dotfiles/blob/aff769fd75225d8f2e481185a71d5e05b76002dc/.aliases#L21-26)) takes place.
+If `~/.path` exists, it will be sourced along with the other files, before any feature testing takes place.
 
 Here’s an example `~/.path` file that adds `/usr/local/bin` to the `$PATH`:
 
@@ -73,10 +73,10 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 
 ### Install Homebrew formulae
 
-When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course):
+When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course). I also use ```brew cask``` for binary applications, because it's easier to autoupdate everything using ```update``` alias using homebrew then letting each and every app notify my about updates.
 
 ```bash
-./brew.sh
+./brew.sh && ./brew-cask.sh
 ```
 
 ## Feedback
