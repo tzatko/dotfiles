@@ -84,7 +84,7 @@ When setting up a new Mac, you may want to install some common [Homebrew](http:/
 Suggestions/improvements
 [welcome](https://github.com/jooray/dotfiles/issues)!
 
-## Improvements from Matthias's dotfiles
+## Improvements and changes from Matthias's dotfiles
 
 * Customization for my needs (e.g. not using Sublime Text, going easy on some osx defaults)
 * Should work on Linux as well
@@ -95,6 +95,8 @@ Suggestions/improvements
 * cp_p command to copy with progress (uses rsync)
 * OS X hot corners adjusted my needs
 * Don't install JavaScript based stuff, install gpg and apg
+* Sane defaults on Linux, don't alias functions that don't work. 
+* Change ip alias to myip (ip is a system command on Linux). Alias ip to myip on Mac OS X
 
 ## Authors
 

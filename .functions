@@ -21,11 +21,6 @@ function mkd() {
 	mkdir -p "$@" && cd "$_";
 }
 
-# Change working directory to the top-most Finder window location
-function cdf() { # short for `cdfinder`
-	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
-}
-
 # Create a .tar.gz archive, using `zopfli`, `pigz` or `gzip` for compression
 function targz() {
 	local tmpFile="${@%/}.tar";
@@ -107,7 +102,7 @@ function server() {
 # (Requires PHP 5.4.0+.)
 function phpserver() {
 	local port="${1:-4000}";
-	local ip=$(ipconfig getifaddr en1);
+	local ip=$(ipconfig getifaddr en0);
 	sleep 1 && open "http://${ip}:${port}/" &
 	php -S "${ip}:${port}";
 }
@@ -207,16 +202,6 @@ function v() {
 	fi;
 }
 
-# `o` with no arguments opens the current directory, otherwise opens the given
-# location
-function o() {
-	if [ $# -eq 0 ]; then
-		open .;
-	else
-		open "$@";
-	fi;
-}
-
 # `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
@@ -229,6 +214,25 @@ function tre() {
 cp_p () {
   rsync -WavP --human-readable --progress "$1" "$2"
 }
+
+if [ $(uname) == "Darwin" ]
+then
+
+  # Change working directory to the top-most Finder window location
+  function cdf() { # short for `cdfinder`
+  	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
+  }
+
+  # `o` with no arguments opens the current directory, otherwise opens the given
+  # location
+  function o() {
+  	if [ $# -eq 0 ]; then
+  		open .;
+  	else
+  		open "$@";
+  	fi;
+  }
+ fi 
 
 # Vagrant goodies
 
