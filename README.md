@@ -2,6 +2,16 @@
 
 Forked from [Mathias](https://github.com/mathiasbynens/dotfiles)
 
+# Shameless hiring insert
+
+Are you a command-line ninja and live in or near Bratislava Slovakia?
+
+My company [DIGMIA](http://www.digmia.com/) is [hiring](http://www.digmia.com/pages/sk/o-nas/zamestnanie.html)
+and we want smart and cool people in our team. Linux ninjas and internal developer wanted!
+
+Our [sister company Essential Data](http://essential-data.sk) is
+[hiring Ruby and Java developers and devops](http://www.essential-data.sk/pracujte-pre-nas/). 
+
 ## Installation
 
 ### Using Git and the bootstrap script
