@@ -11,8 +11,8 @@ and we want smart and cool people in our team. Linux ninjas and internal develop
 
 Our [sister company Essential Data](http://essential-data.sk) is
 [hiring Ruby and Java developers and devops](http://www.essential-data.sk/pracujte-pre-nas/). And if you really
-like hacking (i.e. breaking into systems), check out open positions in [Citadelo](https://www.citadelo.sk/o-citadelo/kariera/),
-we have positions open in Bratislava and in Prague.
+like hacking (i.e. breaking into systems), check out [open positions in Citadelo](https://www.citadelo.sk/o-citadelo/kariera/),
+we are hiring in Bratislava and in Prague.
 
 ## Installation
 
