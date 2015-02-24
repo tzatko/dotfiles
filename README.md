@@ -10,7 +10,9 @@ My company [DIGMIA](http://www.digmia.com/) is [hiring](http://www.digmia.com/pa
 and we want smart and cool people in our team. Linux ninjas and internal developer wanted!
 
 Our [sister company Essential Data](http://essential-data.sk) is
-[hiring Ruby and Java developers and devops](http://www.essential-data.sk/pracujte-pre-nas/). 
+[hiring Ruby and Java developers and devops](http://www.essential-data.sk/pracujte-pre-nas/). And if you really
+like hacking (i.e. breaking into systems), check out open positions in [Citadelo](https://www.citadelo.sk/o-citadelo/kariera/),
+we have positions open in Bratislava and in Prague.
 
 ## Installation
 
