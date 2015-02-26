@@ -113,5 +113,9 @@ brew install apg
 # Install generic colourizer
 brew install grc
 
+# Install atool - provides apack and aunpack - who wants to remember all
+# zip/tar/7z/... switches?
+brew install atool
+
 # Remove outdated versions from the cellar.
 brew cleanup
