@@ -96,6 +96,7 @@ brew install speedtest_cli
 brew install tree
 brew install webkit2png
 brew install zopfli
+brew install z
 
 # Install GPG
 brew install gnupg

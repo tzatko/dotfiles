@@ -109,6 +109,7 @@ Suggestions/improvements
 * Don't install JavaScript based stuff, install gpg and apg
 * Sane defaults on Linux, don't alias functions that don't work. 
 * Change ip alias to myip (ip is a system command on Linux). Alias ip to myip on Mac OS X
+* Add support for directory jumper (z). Install it either using brew or to ~/.z.sh
 
 ## Authors
 
@@ -142,3 +143,5 @@ Modifications:
 * [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [OSXDefaults project](https://github.com/kevinSuttle/OSXDefaults), which aims to provide better documentation for [`~/.osx`](https://mths.be/osx)
 * [Haralan Dobrev](http://hkdobrev.com/)
 * anyone who [contributed a patch](https://github.com/jooray/dotfiles/contributors) or [made a helpful suggestion](https://github.com/jooray/dotfiles/issues) - either here or to the original dotfiles
+
+

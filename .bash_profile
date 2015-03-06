@@ -68,3 +68,7 @@ if [ $(uname) == "Darwin" ]
     # Add `killall` tab completion for common apps
 		complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes SystemUIServer Terminal Twitter" killall;
 	fi
+
+# Add support for directory jumper
+[ -e "$HOME/.z.sh" ] && . $HOME/.z.sh
+[ -e `brew --prefix`/etc/profile.d/z.sh ] && . `brew --prefix`/etc/profile.d/z.sh 
