@@ -16,4 +16,5 @@ brew cask install flux
 brew cask install iterm2
 brew cask install torbrowser
 brew cask install vlc
+brew cask install spectacle
 
