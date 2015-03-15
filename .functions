@@ -128,7 +128,13 @@ function json() {
 
 # Run `dig` and display the most useful info
 function digga() {
-	dig +nocmd "$1" any +multiline +noall +answer;
+  if alias colourify >/dev/null 2>&1
+		then
+		 shopt -s expand_aliases
+     colourify dig +nocmd "$1" any +multiline +noall +answer;
+    else
+     dig +nocmd "$1" any +multiline +noall +answer;
+	fi
 }
 
 # UTF-8-encode a string of Unicode symbols
