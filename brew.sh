@@ -33,6 +33,9 @@ brew install bash
 brew tap homebrew/versions
 brew install homebrew/versions/bash-completion2
 
+# mosh
+brew install mobile-shell
+
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
