@@ -22,6 +22,10 @@ else # OS X `ls`
 	colorflag="-G"
 fi
 
+if which vim > /dev/null 2>&1; then
+  alias vi=vim
+fi
+
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
 
@@ -130,6 +134,9 @@ then
     alias ps='colourify ps'
     alias mtr='colourify mtr'
     alias df='colourify df'
+		if [ $(uname) == "Linux" ] && [ -r "/usr/share/grc/conf.ifconfig" ]; then
+			alias ip='colourify -c /usr/share/grc/conf.ifconfig ip'
+		fi
 fi
 
 
@@ -183,6 +190,17 @@ then
   # Hide/show all desktop icons (useful when presenting)
   alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
   alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+elif [ $(uname) == "Linux" ]
+then
+
+  if which yum >/dev/null 2>&1
+	 then
+  	alias update='sudo yum update; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
+	elif which apt-get >/dev/null 2>&1
+   then
+  	alias update='sudo apt-get update ; sudo apt-get -u upgrade; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
+  fi
   
 fi
 

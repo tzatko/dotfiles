@@ -108,8 +108,10 @@ Suggestions/improvements
 * OS X hot corners adjusted my needs
 * Don't install JavaScript based stuff, install gpg and apg
 * Sane defaults on Linux, don't alias functions that don't work. 
-* Change ip alias to myip (ip is a system command on Linux). Alias ip to myip on Mac OS X
+* Change ip alias to myip (ip is a system command on Linux). Alias ip to myip on Mac OS X. Support colorification for ip
 * Add support for directory jumper (z). Install it either using brew or to ~/.z.sh
+* Better support for [grc](https://github.com/garabik/grc) - on OS X, I recommend [my fork](https://github.com/jooray/grc) with small tweak for df -h. This adds colour to your boring unix commands :)
+* Make "update" work on OS X, Linux (yum-based and apt-get-based distributions)
 
 ## Authors
 
