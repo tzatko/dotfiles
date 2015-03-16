@@ -134,6 +134,7 @@ then
     alias ps='colourify ps'
     alias mtr='colourify mtr'
     alias df='colourify df'
+    alias ifconfig='colourify ifconfig'
 		if [ $(uname) == "Linux" ] && [ -r "/usr/share/grc/conf.ifconfig" ]; then
 			alias ip='colourify -c /usr/share/grc/conf.ifconfig ip'
 		fi
