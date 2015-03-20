@@ -196,6 +196,9 @@ then
   alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
   alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
 
+  # Linux users are used to "locate" command
+  alias locate="mdfind"
+
 elif [ $(uname) == "Linux" ]
 then
 
