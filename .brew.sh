@@ -121,5 +121,7 @@ brew install grc
 # zip/tar/7z/... switches?
 brew install atool
 
+brew install thefuck
+
 # Remove outdated versions from the cellar.
 brew cleanup
