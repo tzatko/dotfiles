@@ -1,6 +1,6 @@
 # Juraj’s dotfiles
 
-Forked from [Mathias](https://github.com/mathiasbynens/dotfiles)
+Forked from [Mathias](https://github.com/mathiasbynens/dotfiles). 
 
 # Shameless hiring insert
 
@@ -109,9 +109,10 @@ Suggestions/improvements
 * Don't install JavaScript based stuff, install gpg and apg
 * Sane defaults on Linux, don't alias functions that don't work. 
 * Change ip alias to myip (ip is a system command on Linux). Alias ip to myip on Mac OS X. Support colorification for ip
-* Add support for directory jumper (z). Install it either using brew or to ~/.z.sh
-* Better support for [grc](https://github.com/garabik/grc) - on OS X, I recommend [my fork](https://github.com/jooray/grc) with small tweak for df -h. This adds colour to your boring unix commands :)
+* Add support for directory jumper (z). Install it either using brew (.brew.sh) or to ~/.z.sh
+* Better support for [grc](https://github.com/garabik/grc) - on OS X. This adds colour to your boring unix commands :). Just install it with brew (included in .brew.sh)
 * Make "update" work on OS X, Linux (yum-based and apt-get-based distributions)
+* Support for [thefuck](https://github.com/nvbn/thefuck), which allows you to fix some common command-line mistakes. "fuck" command by default asks you to confirm the command it wants to execute.
 
 ## Authors
 
@@ -123,7 +124,7 @@ Original:
 
 Modifications:
 
-| [twitter/jurbed](http://twitter.com/jurbed "Follow @jurbed on Twitter") |
+| [![twitter/jurbed](https://www.gravatar.com/avatar/59cd93d4261a85b1b2a6c210b0b4a4ce?s=70)](http://twitter.com/jurbed "Follow @jurbed on Twitter") |
 |---|
 | [Juraj Bednar](https://juraj.bednar.sk/) |
 
