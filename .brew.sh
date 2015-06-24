@@ -123,5 +123,10 @@ brew install atool
 
 brew install thefuck
 
+# for gifify and webmify
+brew install ffmpeg --with-libvpx
+brew install gifsicle
+
 # Remove outdated versions from the cellar.
 brew cleanup
+
