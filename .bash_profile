@@ -41,6 +41,8 @@ which shopt > /dev/null && shopt -s histappend  # append to history, don't overw
 # Save and reload the history after each command finishes
 export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
+# mc theme
+export MC_SKIN=$HOME/.mc/solarized.ini
 
 # Add tab completion for many Bash commands
 if which brew > /dev/null && [ -f "$(brew --prefix)/share/bash-completion/bash_completion" ]; then
