@@ -200,9 +200,6 @@ then
   # Linux users are used to "locate" command
   alias locate="mdfind"
 
-  # Add VimR alias for command-line editing (vimr is installed from .brew-cask.sh)
-  alias vimr="~/Applications/VimR.app/Contents/MacOS/VimR"
-
 elif [ $(uname) == "Linux" ]
 then
 
