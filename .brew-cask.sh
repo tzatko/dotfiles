@@ -19,4 +19,5 @@ brew cask install vlc
 brew cask install spectacle
 brew cask install disk-inventory-x
 brew cask install licecap
+brew cask install vimr
 
