@@ -86,6 +86,7 @@ brew install ack
 brew install dark-mode
 #brew install exiv2
 brew install git
+brew install git-extras
 brew install imagemagick --with-webp
 brew install lua
 brew install lynx
@@ -100,9 +101,12 @@ brew install tree
 brew install webkit2png
 brew install zopfli
 brew install z
+brew install selecta
 
-# Install GPG
+# Install GPG and keybase.io tools
 brew install gnupg
+brew install gnupg2
+brew install keybase
 
 # Install password generator
 brew install apg
