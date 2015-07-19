@@ -19,8 +19,13 @@ brew cask install vlc
 brew cask install spectacle
 brew cask install disk-inventory-x
 brew cask install licecap
+brew cask install appcleaner
+brew cask install handbrake
+brew cask install the-unarchiver
 
+# VimR with vimr script integration
 brew cask install vimr
 mkdir -p ~/bin
-ln -s ~/Applications/VimR.app/Contents/Resources/vimr ~/bin/
+ln -sf ~/Applications/VimR.app/Contents/Resources/vimr ~/bin/
+
 
