@@ -56,24 +56,29 @@ Here’s an example `~/.path` file that adds `/usr/local/bin` to the `$PATH`:
 export PATH="/usr/local/bin:$PATH"
 ```
 
-### First time setup on OS X
+### Sensible OS X defaults
 
-You need to run
+When setting up a new Mac, you may want to set some sensible OS X defaults:
+
 ```bash
-. .brew.sh
-. .brew-cask.sh
-. .osx
+./.osx
 ```
 
-You should probably look at these files and see if they match what you want.
+### Install Homebrew formulae
 
-*Important* After running .brew.sh you need to add `/usr/local/bin/bash` to `/etc/shells` and run
+When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course). I also use ```brew cask``` for binary applications, because it's easier to autoupdate everything using ```update``` alias using homebrew then letting each and every app notify my about updates.
+
+```bash
+./.brew.sh && ./.brew-cask.sh
+```
+
+### Changing shell on Mac OS X
+
+After running `brew.sh`, you will probably get errors related to history. You need to add `/usr/local/bin/bash` to `/etc/shells` and run
 
 ```bash
 chsh -s /usr/local/bin/bash
 ```
-
-Otherwise, you would get errors related to shared history. 
 
 ### Add custom commands without creating a new fork
 
@@ -94,21 +99,6 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 
 You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/jooray/dotfiles/fork) instead, though.
 
-### Sensible OS X defaults
-
-When setting up a new Mac, you may want to set some sensible OS X defaults:
-
-```bash
-./.osx
-```
-
-### Install Homebrew formulae
-
-When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course). I also use ```brew cask``` for binary applications, because it's easier to autoupdate everything using ```update``` alias using homebrew then letting each and every app notify my about updates.
-
-```bash
-./.brew.sh && ./.brew-cask.sh
-```
 
 ## Feedback
 
