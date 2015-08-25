@@ -56,12 +56,21 @@ Here’s an example `~/.path` file that adds `/usr/local/bin` to the `$PATH`:
 export PATH="/usr/local/bin:$PATH"
 ```
 
+### Fast setup
+
+If you don't want to read about Sensible OS X defaults, Janus install,
+and homebrew setup, you can get fast results with 
+
+```bash
+./init/init.sh
+```
+
 ### Sensible OS X defaults
 
 When setting up a new Mac, you may want to set some sensible OS X defaults:
 
 ```bash
-./.osx
+./init/osx
 ```
 
 ### Install Homebrew formulae
@@ -69,8 +78,19 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course). I also use ```brew cask``` for binary applications, because it's easier to autoupdate everything using ```update``` alias using homebrew then letting each and every app notify my about updates.
 
 ```bash
-./.brew.sh && ./.brew-cask.sh
+./init/brew.sh && ./init/brew-cask.sh
 ```
+
+### Install Janus for vim
+
+Janus is a dotfiles framework for vim. The integration is there by default and you can use it with:
+
+```bash
+./init/install-janus.sh
+```
+
+If you don't install Janus, dotfiles will try to fallback to some sensible vim defaults.
+
 
 ### Changing shell on Mac OS X
 
@@ -125,22 +145,15 @@ Suggestions/improvements
 
 ## Authors
 
-Original: 
-
-| [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](http://twitter.com/mathias "Follow @mathias on Twitter") |
-|---|
-| [Mathias Bynens](https://mathiasbynens.be/) |
-
-Modifications:
-
 | [![twitter/jurbed](https://www.gravatar.com/avatar/59cd93d4261a85b1b2a6c210b0b4a4ce?s=70)](http://twitter.com/jurbed "Follow @jurbed on Twitter") |
 |---|
 | [Juraj Bednar](https://juraj.bednar.sk/) |
 
-
 ## Thanks to…
 
-* [Mathias Bynens](https://mathiasbynens.be/) and his [dotfiles repository](https://github.com/mathiasbynens/dotfiles)
+* [Mathias Bynens](https://mathiasbynens.be/) and his [dotfiles repository](https://github.com/mathiasbynens/dotfiles) - this is our upstream project
+* [dotphiles](https://github.com/dotphiles/dotphiles) for inspiration and some configuration scripts
+* [janus](https://github.com/carlhuda/janus) - dotfiles repository for vim that we use
 * @ptb and [his _OS X Lion Setup_ repository](https://github.com/ptb/Mac-OS-X-Lion-Setup)
 * [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
 * [Chris Gerke](http://www.randomsquared.com/) and his [tutorial on creating an OS X SOE master image](http://chris-gerke.blogspot.com/2012/04/mac-osx-soe-master-image-day-7.html) + [_Insta_ repository](https://github.com/cgerke/Insta)
