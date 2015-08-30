@@ -132,7 +132,7 @@ brew install atool
 brew install thefuck
 
 # for gifify and webmify
-brew install ffmpeg --with-libvpx
+brew install ffmpeg --with-libvpx --with-faac
 brew install gifsicle
 
 brew install entr
