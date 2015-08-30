@@ -22,6 +22,7 @@ brew cask install licecap
 brew cask install appcleaner
 brew cask install handbrake
 brew cask install the-unarchiver
+brew cask install java
 
 # VimR with vimr script integration
 brew cask install vimr
