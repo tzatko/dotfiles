@@ -278,6 +278,16 @@ ffconcat(){
 	fi
 }
 
+# weather forecast
+#
+weather(){
+	if [ -z "$1" ]; then
+		curl -4 -A Curl wttr.in
+	else
+		curl -4 -A Curl wttr.in/`urlencode "$*"`
+	fi
+}
+
 # Vagrant goodies
 
 function vlog {
