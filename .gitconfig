@@ -175,3 +175,7 @@
 
 	insteadOf = "gist:"
 
+[include]
+
+		path = ~/.gitconfig.local
+
