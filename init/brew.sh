@@ -107,6 +107,7 @@ brew install webkit2png
 brew install zopfli
 brew install z
 brew install selecta
+brew install tmux
 
 # Install GPG and keybase.io tools
 brew install gnupg
