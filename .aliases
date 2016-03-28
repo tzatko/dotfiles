@@ -221,8 +221,5 @@ then
   
 fi
 
-# thefuck https://github.com/nvbn/thefuck
-alias fuck='$(thefuck $(fc -ln -1))'
-
-# See if my connectionw orks
+# See if my connection works
 alias p="ping 8.8.8.8"

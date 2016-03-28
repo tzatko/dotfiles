@@ -131,8 +131,6 @@ brew install grc
 # zip/tar/7z/... switches?
 brew install atool
 
-brew install thefuck
-
 # for gifify and webmify
 brew install ffmpeg --with-libvpx --with-faac
 brew install gifsicle

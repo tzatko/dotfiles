@@ -145,7 +145,6 @@ Suggestions/improvements
 * Add support for directory jumper (z). Install it either using brew (.brew.sh) or to ~/.z.sh
 * Better support for [grc](https://github.com/garabik/grc) - on OS X. This adds colour to your boring unix commands :). Just install it with brew (included in .brew.sh)
 * Make "update" work on OS X, Linux (yum-based and apt-get-based distributions)
-* Support for [thefuck](https://github.com/nvbn/thefuck), which allows you to fix some common command-line mistakes. "fuck" command by default asks you to confirm the command it wants to execute.
 * Support for [transfer.sh](https://transfer.sh/)
 
 ## Authors
