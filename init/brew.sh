@@ -124,8 +124,10 @@ brew install apg
 # Install io.js
 #brew install iojs
 
-# Install generic colourizer
+# Install generic colourizer and other tools for highlighting
 brew install grc
+brew install source-highlight
+brew install vimpager
 
 # Install atool - provides apack and aunpack - who wants to remember all
 # zip/tar/7z/... switches?

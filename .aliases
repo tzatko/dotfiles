@@ -27,6 +27,9 @@ if which vim > /dev/null 2>&1; then
   alias vi=vim
 fi
 
+# alternative to tail -f
+alias lessf="less +F"
+
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
 
