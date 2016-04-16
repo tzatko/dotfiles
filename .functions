@@ -316,7 +316,7 @@ ffconcat(){
 	if [ -e "$1" ]; then
 		echo "Error: First argument is the output file and it should _not_ exist ($1)"
 	else
-	  ffmpeg -f concat -i <(printf "file '$PWD/%s'\n" "${@:2}") -c copy "$1"
+	  ffmpeg -f concat -safe 0 -i <(printf "file '$PWD/%s'\n" "${@:2}") -c copy "$1"
 	fi
 }
 
