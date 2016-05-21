@@ -94,14 +94,6 @@ Janus is a dotfiles framework for vim. The integration is there by default and y
 If you don't install Janus, dotfiles will try to fallback to some sensible vim defaults.
 
 
-### Changing shell on Mac OS X
-
-After running `brew.sh`, you will probably get errors related to history. You need to add `/usr/local/bin/bash` to `/etc/shells` and run
-
-```bash
-chsh -s /usr/local/bin/bash
-```
-
 ### Add custom commands without creating a new fork
 
 If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
