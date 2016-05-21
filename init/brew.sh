@@ -27,6 +27,12 @@ if [ $(uname) == "Darwin" ]
 				brew tap homebrew/versions
 				brew install bash-completion2
 
+				# Switch to using brew-installed bash as default shell
+				if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
+					echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
+					chsh -s /usr/local/bin/bash;
+				fi;
+
 				# Install more recent versions of some OS X tools.
 				brew install vim --override-system-vi
 				brew install homebrew/dupes/grep

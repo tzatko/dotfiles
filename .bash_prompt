@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Shell prompt based on the Solarized Dark theme.
 # Heavily inspired by @necolas’s prompt: https://github.com/necolas/dotfiles
 # iTerm → Profiles → Text → use 13pt Monaco with 1.1 vertical spacing.
