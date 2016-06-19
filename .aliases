@@ -61,14 +61,9 @@ alias week='date +%V'
 # Stopwatch
 alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date'
 
-<<<<<<< HEAD
 # Dice for the undecided
 alias dice='echo $[ 1 + $RANDOM % 6 ]'
 alias yn='[ $[ $RANDOM % 2 ] == 0 ] && echo "Yes" || echo "No"'
-=======
-# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-alias update='sudo softwareupdate -i -a; brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
->>>>>>> 47268d92afbec69e3a7243a144a126bbd25bcf2c
 
 # IP addresses
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
@@ -166,7 +161,7 @@ fi
 if [ $(uname) == "Darwin" ]
 then
 
-  # Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+  # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
   alias update='sudo softwareupdate -i -a; sudo /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept ;  brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
 
   # Lock the screen (when going AFK)
