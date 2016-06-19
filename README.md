@@ -60,19 +60,19 @@ export PATH="/usr/local/bin:$PATH"
 
 ### Fast setup
 
-If you don't want to read about Sensible OS X defaults, Janus install,
+If you don't want to read about Sensible macOS defaults, Janus install,
 and homebrew setup, you can get fast results with 
 
 ```bash
 ./init/init.sh
 ```
 
-### Sensible OS X defaults
+### Sensible macOS defaults
 
-When setting up a new Mac, you may want to set some sensible OS X defaults:
+When setting up a new Mac, you may want to set some sensible macOS defaults:
 
 ```bash
-./init/osx
+./init/macos
 ```
 
 ### Install Homebrew formulae
@@ -123,20 +123,20 @@ Suggestions/improvements
 
 ## Improvements and changes from Matthias's dotfiles
 
-* Customization for my needs (e.g. not using Sublime Text, going easy on some osx defaults)
+* Customization for my needs (e.g. not using Sublime Text, going easy on some macOS defaults)
 * Should work on Linux as well
 * Vagrant commands
 * Bash prompt - change the color of '$' in the prompt to red if last process exited with error
 * Customization of screen
 * Don't force en_US locale, this is per user (I set mine in ~/.extra)
 * cp_p command to copy with progress (uses rsync)
-* OS X hot corners adjusted my needs
+* macOS hot corners adjusted my needs
 * Don't install JavaScript based stuff, install gpg and apg
-* Sane defaults on Linux, don't alias functions that don't work. 
-* Change ip alias to myip (ip is a system command on Linux). Alias ip to myip on Mac OS X. Support colorification for ip
+* Sane defaults on Linux, don't alias functions that don't work.
+* Change ip alias to myip (ip is a system command on Linux). Alias ip to myip on macOS. Support colorification for ip
 * Add support for directory jumper (z). Install it either using brew (.brew.sh) or to ~/.z.sh
-* Better support for [grc](https://github.com/garabik/grc) - on OS X. This adds colour to your boring unix commands :). Just install it with brew (included in .brew.sh)
-* Make "update" work on OS X, Linux (yum-based and apt-get-based distributions)
+* Better support for [grc](https://github.com/garabik/grc) - on macOS. This adds colour to your boring unix commands :). Just install it with brew (included in .brew.sh)
+* Make "update" work on macOS, Linux (yum-based and apt-get-based distributions)
 * Support for [transfer.sh](https://transfer.sh/)
 
 ## Authors
@@ -161,7 +161,7 @@ Suggestions/improvements
 * [Nicolas Gallagher](http://nicolasgallagher.com/) and his [dotfiles repository](https://github.com/necolas/dotfiles)
 * [Sindre Sorhus](http://sindresorhus.com/)
 * [Tom Ryder](http://blog.sanctum.geek.nz/) and his [dotfiles repository](https://github.com/tejr/dotfiles)
-* [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [OSXDefaults project](https://github.com/kevinSuttle/OSXDefaults), which aims to provide better documentation for [`~/.osx`](https://mths.be/osx)
+* [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [OSXDefaults project](https://github.com/kevinSuttle/OSXDefaults), which aims to provide better documentation for [`~/init/macos`](https://mths.be/macos)
 * [Haralan Dobrev](http://hkdobrev.com/)
 * anyone who [contributed a patch](https://github.com/jooray/dotfiles/contributors) or [made a helpful suggestion](https://github.com/jooray/dotfiles/issues) - either here or to the original dotfiles
 
