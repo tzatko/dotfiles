@@ -128,7 +128,8 @@ Suggestions/improvements
 * Vagrant commands
 * Bash prompt - change the color of '$' in the prompt to red if last process exited with error
 * Customization of screen and tmux, including [tmux mouse scrolling over
-  mosh](http://www.screencast.com/t/sB3RJHIXc1p)
+  mosh](http://www.screencast.com/t/sB3RJHIXc1p) (not enabled by
+  default, see tmux.conf)
 * Don't force en_US locale, this is per user (I set mine in ~/.extra)
 * cp_p command to copy with progress (uses rsync)
 * macOS hot corners adjusted my needs
