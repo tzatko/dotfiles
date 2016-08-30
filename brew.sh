@@ -102,5 +102,8 @@ brew install vbindiff
 brew install webkit2png
 brew install zopfli
 
+# metadata removal tool (privacy)
+brew install mat
+
 # Remove outdated versions from the cellar.
 brew cleanup
