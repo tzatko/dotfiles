@@ -162,7 +162,7 @@ if [ $(uname) == "Darwin" ]
 then
 
   # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-  alias update='sudo softwareupdate -i -a; sudo /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept ;  brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
+  alias update='sudo softwareupdate -i -a; sudo /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept ;  brew update; brew upgrade --all; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update ; sudo gem cleanup'
 
   # Lock the screen (when going AFK)
   alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
@@ -218,10 +218,10 @@ then
 
   if which yum >/dev/null 2>&1
 	 then
-  	alias update='sudo yum update; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
+  	alias update='sudo yum update; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update; sudo gem cleanup'
 	elif which apt-get >/dev/null 2>&1
    then
-  	alias update='sudo apt-get update ; sudo apt-get -u upgrade; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update'
+  	alias update='sudo apt-get update ; sudo apt-get -u upgrade; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update ; sudo gem cleanup'
   fi
   
 fi
