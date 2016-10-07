@@ -87,7 +87,12 @@ brew install ucspi-tcp # `tcpserver` etc.
 brew install xz
 
 # Install other useful binaries.
+
+# better grep
 brew install ack
+# better ack
+brew install the_silver_searcher
+
 #brew install exiv2
 brew install git
 brew install git-extras
@@ -137,6 +142,8 @@ brew install atool
 brew install ffmpeg --with-libvpx --with-faac
 brew install gifsicle
 
+# metadata removal tool (privacy)
+brew install mat
 brew install entr
 
 # Remove outdated versions from the cellar.
