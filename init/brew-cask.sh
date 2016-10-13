@@ -24,6 +24,17 @@ brew cask install handbrake
 brew cask install the-unarchiver
 brew cask install java
 
+# quicklook plugins
+brew cask install qlmarkdown
+brew cask install quicklook-json
+brew cask install qlprettypatch
+brew cask install quicklook-csv
+
+# fonts
+brew tap caskroom/fonts
+brew cask install font-inconsolata
+brew cask install font-fira-code
+
 # VimR with vimr script integration
 brew cask install vimr
 mkdir -p ~/bin
