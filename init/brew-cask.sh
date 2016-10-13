@@ -23,6 +23,7 @@ brew cask install appcleaner
 brew cask install handbrake
 brew cask install the-unarchiver
 brew cask install java
+brew cask install macdown
 
 # quicklook plugins
 brew cask install qlmarkdown
