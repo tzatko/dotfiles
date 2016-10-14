@@ -27,6 +27,14 @@ if [ $(uname) == "Darwin" ]
 				brew tap homebrew/versions
 				brew install bash-completion2
 
+				brew tap homebrew/completions
+				brew install homebrew/completions/brew-cask-completion
+				brew install homebrew/completions/bundler-completion
+				brew install homebrew/completions/gem-completion
+				brew install homebrew/completions/kitchen-completion
+				brew install homebrew/completions/rake-completion
+				brew install homebrew/completions/vagrant-completion
+
 				# Switch to using brew-installed bash as default shell
 				if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
 					echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
