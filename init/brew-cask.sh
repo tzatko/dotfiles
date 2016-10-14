@@ -35,6 +35,7 @@ brew cask install quicklook-csv
 brew tap caskroom/fonts
 brew cask install font-inconsolata
 brew cask install font-fira-code
+brew cask install font-hack
 
 # VimR with vimr script integration
 brew cask install vimr
