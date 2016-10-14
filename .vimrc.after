@@ -102,6 +102,14 @@ endif
 " Note: The following needs to be included last in order to allow
 "       any of the above settings to be overwritten by local ones
 
+if filereadable(glob('/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim'))
+	source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+elseif filereadable(glob('~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/plugin/powerline.vim'))
+	source ~/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim/plugin/powerline.vim
+elseif filereadable(glob('~/.local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim'))
+	source ~/.local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
+endif
+
 if filereadable(glob('~/.vimrc.local'))
 	source ~/.vimrc.local
 endif
