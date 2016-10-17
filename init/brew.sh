@@ -6,7 +6,7 @@
 brew update
 
 # Upgrade any already-installed formulae.
-brew upgrade --all
+brew upgrade
 
 # some packages are only required/wanted on Mac OS X
 if [ $(uname) == "Darwin" ]
