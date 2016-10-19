@@ -56,6 +56,10 @@ if [ $(uname) == "Darwin" ]
 				brew install woff2
 
 				brew install dark-mode
+
+				# command line interface for Mac App Store
+				brew install mas
+
   fi
 
 # Install some other useful utilities like `sponge`.
