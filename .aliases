@@ -161,8 +161,8 @@ fi
 if [ $(uname) == "Darwin" ]
 then
 
-  # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
-  alias update='sudo softwareupdate -i -a; sudo /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept ;  if hash mas 2>/dev/null; then mas upgrade; fi; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update ; sudo gem cleanup'
+  # Get macOS Software Updates, and update installed App Store apps, Ruby gems, Homebrew, npm, and their installed packages
+  alias update='sudo -- sh -c "softwareupdate -i -a; /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept ; gem update --system; gem update ; gem cleanup" ; if hash mas 2>/dev/null; then mas upgrade; fi; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; '
 
   # Lock the screen (when going AFK)
   alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
