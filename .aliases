@@ -70,19 +70,6 @@ alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
-# View HTTP traffic
-if [ $(uname) == "Darwin" ]
- then
-  alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
-	# does not work
-  #alias httpdump="sudo tcpdump -i en0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
- else
-  alias sniff="sudo ngrep -d 'eth0' -t '^(GET|POST) ' 'tcp and port 80'"
-	# does not work
-  #alias httpdump="sudo tcpdump -i eth0 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
- fi
-
-
 # Canonical hex dump; some systems have this symlinked
 command -v hd > /dev/null || alias hd="hexdump -C"
 
@@ -171,7 +158,8 @@ then
 	alias stfu="osascript -e 'set volume output muted true'"
 	alias pumpitup="osascript -e 'set volume output volume 100'"
 
-
+	# View HTTP traffic
+  alias sniff="sudo ngrep -d 'en0' -t '^(GET|POST) ' 'tcp and port 80'"
 
   # Merge PDF files
   # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
@@ -224,6 +212,12 @@ then
 
 elif [ $(uname) == "Linux" ]
 then
+
+	# View HTTP traffic
+	alias sniff="sudo ngrep -d 'eth0' -t '^(GET|POST) ' 'tcp and port 80'"
+
+	# ifactive on macOS shows only active interfaces, that's the default behavior on Linux
+	alias ifactive="ifconfig"
 
   if which yum >/dev/null 2>&1
 	 then
