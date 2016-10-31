@@ -187,9 +187,16 @@ then
   
   # make "ip" an alias to myip (on Linux, ip is a system command)
   alias ip=myip
-  
+
+  # Show active network interfaces
+	alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+
   # Flush Directory Service cache
   alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
+
+	# Clean up LaunchServices to remove duplicates in the “Open With” menu
+	alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
+
   
   # JavaScriptCore REPL
   jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
