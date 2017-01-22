@@ -15,6 +15,8 @@ brew cask install alfred
 brew cask install flux
 brew cask install iterm2
 brew cask install torbrowser
+brew cask install onionshare
+ln -s /Applications/OnionShare.app/Contents/MacOS/onionshare ~/.bin/
 brew cask install vlc
 brew cask install spectacle
 brew cask install disk-inventory-x
