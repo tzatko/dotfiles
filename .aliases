@@ -197,7 +197,9 @@ then
 	# Clean up LaunchServices to remove duplicates in the “Open With” menu
 	alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user && killall Finder"
 
-  
+  # Google Chrome
+	alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+
   # JavaScriptCore REPL
   jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
   [ -e "${jscbin}" ] && alias jsc="${jscbin}";
@@ -238,6 +240,8 @@ then
    then
   	alias update='sudo apt-get update ; sudo apt-get -u upgrade; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update ; sudo gem cleanup'
   fi
+
+	alias chrome='google-chrome'
   
 fi
 
