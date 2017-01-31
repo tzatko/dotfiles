@@ -65,6 +65,9 @@ alias timer='echo "Timer started. Stop with Ctrl-D." && date && time cat && date
 alias dice='echo $[ 1 + $RANDOM % 6 ]'
 alias yn='[ $[ $RANDOM % 2 ] == 0 ] && echo "Yes" || echo "No"'
 
+# Google Chrome
+alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+
 # IP addresses
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
