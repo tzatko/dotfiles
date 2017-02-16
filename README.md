@@ -2,18 +2,6 @@
 
 Forked from [Mathias](https://github.com/mathiasbynens/dotfiles). 
 
-# Shameless hiring insert
-
-Are you a command-line ninja and live in or near Bratislava Slovakia?
-
-My company [DIGMIA](http://www.digmia.com/) is [hiring](http://www.digmia.com/pages/sk/o-nas/zamestnanie.html)
-and we want smart and cool people in our team. Linux ninjas and internal developer wanted!
-
-Our [sister company Essential Data](http://essential-data.sk) is
-[hiring Ruby and Java developers and devops](http://www.essential-data.sk/pracujte-pre-nas/). And if you really
-like hacking (i.e. breaking into systems), check out [open positions in Citadelo](https://www.citadelo.sk/o-citadelo/kariera/),
-we are hiring in Bratislava and in Prague.
-
 ## Installation
 
 **Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
@@ -115,6 +103,9 @@ You could also use `~/.extra` to override settings, functions and aliases from m
 
 You can also use `~/.gitconfig.local` and `~/.vimrc.local`
 
+## Examples
+
+If you would like to see some examples of .aliases or .functions usage, have a look at [EXAMPLES.md](https://github.com/jooray/dotfiles/blob/master/EXAMPLES.md).
 
 ## Feedback
 
@@ -165,6 +156,8 @@ Suggestions/improvements
 * [Tom Ryder](https://sanctum.geek.nz/) and his [dotfiles repository](https://sanctum.geek.nz/cgit/dotfiles.git/about)
 * [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [OSXDefaults project](https://github.com/kevinSuttle/OSXDefaults), which aims to provide better documentation for [`~/.macos`](https://mths.be/macos)
 * [Haralan Dobrev](http://hkdobrev.com/)
+* [Dominee](https://github.com/dominee/Termux-dotfiles) for EXAMPLES.md
+  and a few aliases plus better Linux support
 * anyone who [contributed a patch](https://github.com/jooray/dotfiles/contributors) or [made a helpful suggestion](https://github.com/jooray/dotfiles/issues) - either here or to the original dotfiles
 
 
