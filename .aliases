@@ -36,6 +36,7 @@ alias lessf="less +F"
 
 # List all files colorized in long format
 alias l="ls -lF ${colorflag}"
+alias ll="ls -lahF ${colorflag}"
 
 # List all files colorized in long format, including dot files
 alias la="ls -laF ${colorflag}"
@@ -67,7 +68,6 @@ alias yn='[ $[ $RANDOM % 2 ] == 0 ] && echo "Yes" || echo "No"'
 
 # IP addresses
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
 # Canonical hex dump; some systems have this symlinked
@@ -151,6 +151,9 @@ then
   # Get macOS Software Updates, and update installed App Store apps, Ruby gems, Homebrew, npm, and their installed packages
   alias update='sudo -- sh -c "softwareupdate -i -a; /Applications/Xcode.app/Contents/Developer/usr/bin/xcodebuild -license accept ; gem update --system; gem update ; gem cleanup" ; if hash mas 2>/dev/null; then mas upgrade; fi; brew update; brew upgrade; brew cleanup; npm install npm -g; npm update -g; '
 
+	# Get local ip address
+	alias localip="ipconfig getifaddr en0"
+
   # Lock the screen (when going AFK)
   alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
@@ -232,6 +235,9 @@ then
 
 	# ifactive on macOS shows only active interfaces, that's the default behavior on Linux
 	alias ifactive="ifconfig"
+
+	# Get local ip address
+	alias localip="ifconfig wlan0 | grep 'inet addr' | cut -d ':' -f 2 | cut -d ' ' -f 1"
 
   if which yum >/dev/null 2>&1
 	 then
