@@ -26,6 +26,7 @@ brew cask install handbrake
 brew cask install the-unarchiver
 brew cask install java
 brew cask install macdown
+brew cask install keybase
 
 # quicklook plugins
 brew cask install qlmarkdown

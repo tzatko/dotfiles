@@ -127,10 +127,9 @@ brew install z
 brew install selecta
 brew install tmux
 
-# Install GPG and keybase.io tools
+# Install GPG
 brew install gnupg
 brew install gnupg2
-brew install keybase
 
 # Install password generator
 brew install apg
