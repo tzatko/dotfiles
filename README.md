@@ -107,6 +107,8 @@ You can also use `~/.gitconfig.local` and `~/.vimrc.local`
 
 If you would like to see some examples of .aliases or .functions usage, have a look at [EXAMPLES.md](https://github.com/jooray/dotfiles/blob/master/EXAMPLES.md).
 
+Some of the functionality of these dotfiles depends on formulae installed by `init/brew.sh`. If you don’t plan to run `init/brew.sh`, you should look carefully through the script and manually install any particularly important ones. A good example is Bash/Git completion: the dotfiles use a special version from Homebrew.
+
 ## Feedback
 
 Suggestions/improvements
