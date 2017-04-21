@@ -202,6 +202,7 @@ then
 
   # Google Chrome
 	alias chrome='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome'
+	alias canary='/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary'
 
   # JavaScriptCore REPL
   jscbin="/System/Library/Frameworks/JavaScriptCore.framework/Versions/A/Resources/jsc";
