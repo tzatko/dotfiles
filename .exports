@@ -28,3 +28,7 @@ if which less > /dev/null 2>&1;then
 	# Don’t clear the screen after quitting a manual page.
 	export MANPAGER='less -X';
 fi
+
+# Avoid issues with `gpg` as installed via Homebrew.
+# https://stackoverflow.com/a/42265848/96656
+export GPG_TTY=$(tty);
