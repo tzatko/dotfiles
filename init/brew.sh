@@ -160,6 +160,7 @@ brew install entr
 
 # some build tools (required for YouCompleteMe for example)
 brew install cmake
+brew install go
 
 # Remove outdated versions from the cellar.
 brew cleanup
