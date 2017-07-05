@@ -13,8 +13,6 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 sudo npm install -g npm
 sudo npm update -g
 
-sudo npm install -g typescript
-sudo npm install -g yarn webpack
-sudo npm install -g truffle truffle-expect truffle-config web3
-sudo npm install -g ethereumjs-testrpc
-
+sudo npm install -g typescript yarn webpack
+# solidity and ethereum tools
+sudo npm install -g truffle truffle-expect truffle-config web3 ethereumjs-testrpc solc
