@@ -158,6 +158,9 @@ brew install gifsicle
 brew install mat
 brew install entr
 
+# some build tools (required for YouCompleteMe for example)
+brew install cmake
+
 # Remove outdated versions from the cellar.
 brew cleanup
 
