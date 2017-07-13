@@ -28,6 +28,7 @@ rake || die "Rake failed."
 mkdir -p ${HOME}/.janus
 cd ${HOME}/.janus
 git clone https://github.com/tomlion/vim-solidity
+git clone https://github.com/posva/vim-vue.git
 git clone https://github.com/Valloric/YouCompleteMe
 cd YouCompleteMe
 git submodule update --init --recursive
