@@ -43,9 +43,9 @@ if [ $(uname) == "Darwin" ]
 				# Install more recent versions of some OS X tools.
 				brew install vim --with-override-system-vi
 				brew install macvim --env-std
-				brew install homebrew/dupes/grep
-				brew install homebrew/dupes/openssh
-				brew install homebrew/dupes/screen
+				brew install grep
+				brew install openssh
+				brew install screen
 				brew install homebrew/php/php56 --with-gmp
 
 				# Install font tools.
@@ -68,12 +68,6 @@ brew install mobile-shell
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
-
-# Install RingoJS and Narwhal.
-# Note that the order in which these are installed is important;
-# see http://git.io/brew-narwhal-ringo.
-#brew install ringojs
-#brew install narwhal
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 brew install aircrack-ng
@@ -115,7 +109,6 @@ brew install p7zip
 brew install pigz
 brew install pv
 brew install rename
-#brew install rhino
 brew install speedtest_cli
 brew install ssh-copy-id
 brew install testssl
