@@ -15,8 +15,6 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias db="cd ~/Dropbox"
 alias g="git"
-alias h="history"
-alias j="jobs"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -85,10 +83,6 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
-# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
-# (useful when executing time-consuming commands)
-alias badge="tput bel"
-
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
@@ -96,7 +90,7 @@ alias map="xargs -n1"
 
 # One of @janmoesen’s ProTip™s
 for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
-	alias "$method"="lwp-request -m '$method'"
+	alias "${method}"="lwp-request -m '${method}'"
 done
 
 # Make Grunt print stack traces by default
@@ -107,7 +101,7 @@ command -v grunt > /dev/null && alias grunt="grunt --stack"
 alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v extension-process | tr -s ' ' | cut -d ' ' -f2 | xargs kill"
 
 # Reload the shell (i.e. invoke as a login shell)
-alias reload="exec $SHELL -l"
+alias reload="exec ${SHELL} -l"
 
 # vagrant goodies
 alias vp='vagrant provision'
