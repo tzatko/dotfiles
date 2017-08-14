@@ -30,6 +30,7 @@ cd ${HOME}/.janus
 git clone https://github.com/tomlion/vim-solidity
 git clone https://github.com/posva/vim-vue.git
 git clone https://github.com/Valloric/YouCompleteMe
+git clone https://github.com/elentok/plaintasks.vim
 cd YouCompleteMe
 git submodule update --init --recursive
 ./install.py --gocode-completer --tern-completer
