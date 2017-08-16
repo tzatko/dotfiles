@@ -93,8 +93,9 @@ sudo systemsetup -setrestartfreeze on
 # Never go into computer sleep mode
 #sudo systemsetup -setcomputersleep Off > /dev/null
 
+# Commented out, because it breaks Siri and that in turn breaks ESC key:
 # Disable Notification Center and remove the menu bar icon
-launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
+# launchctl unload -w /System/Library/LaunchAgents/com.apple.notificationcenterui.plist 2> /dev/null
 
 # Disable automatic capitalization as it’s annoying when typing code
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
