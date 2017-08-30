@@ -109,6 +109,7 @@ brew install p7zip
 brew install pigz
 brew install pv
 brew install rename
+brew install rlwrap
 brew install speedtest_cli
 brew install ssh-copy-id
 brew install testssl
