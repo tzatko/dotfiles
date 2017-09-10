@@ -27,6 +27,7 @@ brew cask install the-unarchiver
 brew cask install java
 brew cask install macdown
 brew cask install keybase
+brew cask install vimr
 
 # quicklook plugins
 brew cask install qlmarkdown
@@ -43,10 +44,4 @@ brew tap caskroom/fonts
 brew cask install font-inconsolata
 brew cask install font-fira-code
 brew cask install font-hack
-
-# VimR with vimr script integration
-brew cask install vimr
-mkdir -p ~/bin
-ln -sf ~/Applications/VimR.app/Contents/Resources/vimr ~/bin/
-
 
