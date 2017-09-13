@@ -120,6 +120,7 @@ brew install z
 brew install selecta
 brew install tmux
 brew install gnupg
+brew install gpgme
 
 # Install password generator
 brew install apg
