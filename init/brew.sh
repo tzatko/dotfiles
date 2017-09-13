@@ -119,10 +119,7 @@ brew install zopfli
 brew install z
 brew install selecta
 brew install tmux
-
-# Install GPG
 brew install gnupg
-brew install gnupg2
 
 # Install password generator
 brew install apg
