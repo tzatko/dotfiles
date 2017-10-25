@@ -63,8 +63,7 @@ if [ $(uname) == "Darwin" ]
 
 # Install some other useful utilities like `sponge`.
 brew install moreutils
-# mosh
-brew install mobile-shell
+brew install mosh
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
