@@ -261,3 +261,6 @@ alias p="ping 8.8.8.8"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# How are the cryptos doing? (Rates in EUR, you can change it for USD)
+alias cr='curl -A cURL EUR.rate.sx/?q'
