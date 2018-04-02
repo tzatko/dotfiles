@@ -153,6 +153,15 @@ brew install entr
 brew install cmake
 brew install go
 
+brew install dnscrypt-proxy
+
+cat << EOF
+
+For setup instructions for dnscrypt-proxy (encrypted DNS requests) read:
+https://juraj.bednar.io/blog/2018/04/02/more-privacy-with-dnscrypt/
+
+EOF
+
 # Remove outdated versions from the cellar.
 brew cleanup
 
