@@ -25,7 +25,7 @@ brew cask install appcleaner
 brew cask install handbrake
 brew cask install the-unarchiver
 brew cask install java
-brew cask install macdown
+brew cask install mark-text
 brew cask install keybase
 brew cask install vimr
 
