@@ -117,7 +117,7 @@ drwxr-xr-x 3 root root 4096 Jan  4 16:03 dir3/
 01
 ```
 
-`times` Stopwatch
+`timer` Stopwatch
 ```
 /tmp/dotfiles$ timer
 Timer started. Stop with Ctrl-D.
