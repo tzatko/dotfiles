@@ -59,6 +59,7 @@ if [ $(uname) == "Darwin" ]
 				# command line interface for Mac App Store
 				brew install mas
 
+        brew install reattach-to-user-namespace # tmux copy to macos clipboard
   fi
 
 # Install some other useful utilities like `sponge`.
