@@ -147,7 +147,7 @@ then
       alias lspci='colourify lspci'
       alias ip='colourify ip'
       alias semanage='colourify semanage'
-      alias getsebool='colourify setsebool'
+      alias getsebool='colourify getsebool'
 		fi
 fi
 
