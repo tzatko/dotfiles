@@ -156,6 +156,8 @@ brew install go
 
 brew install dnscrypt-proxy
 
+brew install fpp
+
 cat << EOF
 
 For setup instructions for dnscrypt-proxy (encrypted DNS requests) read:
