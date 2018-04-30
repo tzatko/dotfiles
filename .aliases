@@ -269,9 +269,6 @@ then
   
 fi
 
-# See if my connection works
-alias p="ping 8.8.8.8"
-
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
 
