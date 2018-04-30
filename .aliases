@@ -271,6 +271,3 @@ fi
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
-
-# How are the cryptos doing? (Rates in EUR, you can change it to USD)
-alias cr='curl -A cURL -s EUR.rate.sx/?q | tail -n +7'

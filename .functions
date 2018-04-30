@@ -98,9 +98,9 @@ function dataurl() {
 
 # See if my connection works - or invoke ping
 function p() {
-  if [ $1 ]
-   then ping $*
-   else ping 1.1.1.1
+  if [ -z $1 ]
+    then ping 1.1.1.1
+    else ping $*
    fi
 }
 
@@ -320,12 +320,20 @@ ffconcat(){
 }
 
 # weather forecast
-#
-weather(){
+function weather() {
 	if [ -z "$1" ]; then
 		curl -4 -A Curl wttr.in
 	else
 		curl -4 -A Curl wttr.in/`urlencode "$*"`
+	fi
+}
+
+# How are the cryptos doing? (Rates in EUR, you can change it to USD)
+function cr() {
+	if [ -z "$1" ]; then
+    curl -A cURL -s EUR.rate.sx/?q | tail -n +7
+	else
+    curl -A cURL -s EUR.rate.sx/`urlencode "$*"`?q
 	fi
 }
 
