@@ -42,18 +42,6 @@ Easier navigation: `..`, `...`, `....`, `.....`, `~` and `-`
 
 **Shortcuts**
 
-`h` history
-```
-/tmp/dotfiles/dir1/dir11/dir111$ h
-  235  2017-01-04 16:21:41 ~
-  236  2017-01-04 16:22:03 --
-  237  2017-01-04 16:22:18 -
-  238  2017-01-04 16:22:31 cd dir1/dir11/dir111/
-  239  2017-01-04 16:22:42 ...
-  240  2017-01-04 16:22:44 -
-  241  2017-01-04 16:39:13 h
-```
-
 `g` git
 ```
 usage: git [--version] [--help] [-C <path>] [-c name=value]
@@ -61,13 +49,6 @@ usage: git [--version] [--help] [-C <path>] [-c name=value]
            [-p | --paginate | --no-pager] [--no-replace-objects] [--bare]
            [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]
            <command> [<args>]
-```
-
-`j` jobs
-```
-/tmp/dotfiles/dir1/dir11/dir111$ j
-[1]+  Stopped                 top
-/tmp/dotfiles/dir1/dir11/dir111$
 ```
 
 `lessf` alternative to `tail -f`
