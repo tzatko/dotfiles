@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
 
+# This can be configured on a per-machine basis in ~/.dotconf
+if [ -z $LOCAL_NET_IFACE ]
+then
+  if [ $(uname) == "Darwin" ]
+  then
+   export LOCAL_NET_IFACE="en0"
+  elif [ $(uname) == "Linux" ]
+  then
+   export LOCAL_NET_IFACE="wlan0"
+  fi
+fi
+
 # Make vim the default editor.
 export EDITOR='vim';
 

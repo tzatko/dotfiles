@@ -82,7 +82,7 @@ Janus is a dotfiles framework for vim. The integration is there by default and y
 If you don't install Janus, dotfiles will try to fallback to some sensible vim defaults.
 
 
-### Add custom commands without creating a new fork
+### Add custom commands and settings without creating a new fork
 
 If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
 
@@ -102,6 +102,17 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/jooray/dotfiles/fork) instead, though.
 
 You can also use `~/.gitconfig.local` and `~/.vimrc.local`
+
+Another file that allows you to configure some aspects is ~/.dotconf.
+You can see ~/.dotconf.example for an example configuration. It is
+sourced before the main files, so if you need to set some environment
+variable before other settings, you can do so. The main setting you
+could need to change is the name of the interface that connects you to
+the internet:
+
+```bash
+export LOCAL_NET_IFACE="en0"
+```
 
 ## Examples
 

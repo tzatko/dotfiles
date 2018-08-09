@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# Set local network interface
+#export LOCAL_NET_IFACE="en0"

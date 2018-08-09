@@ -117,7 +117,10 @@ function server() {
 # (Requires PHP 5.4.0+.)
 function phpserver() {
 	local port="${1:-4000}";
-	local ip=$(ipconfig getifaddr en0);
+	local ip=$(ipconfig getifaddr $LOCAL_NET_IFACE);
+  if [ -z ${ip} ]; then
+    ip="127.0.0.1"
+  fi
 	sleep 1 && open "http://${ip}:${port}/" &
 	php -S "${ip}:${port}";
 }
