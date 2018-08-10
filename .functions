@@ -13,10 +13,7 @@ function calc() {
 
         # Improve the output for decimal numbers.
 
-        printf "%s" "$result" |
-        sed -e "s/^\./0./"          # Add "0" for cases like ".5".` \
-            -e "s/^-\./-0./"        # Add "0" for cases like "-.5".`\
-            -e "s/0*$//;s/\.$//"    # Remove tailing zeros.
+        printf "%s" "$result" | sed -e "s/^\./0./" -e "s/^-\./-0./" -e "s/0*$//;s/\.$//"
 
     else
         printf "%s" "$result"
