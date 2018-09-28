@@ -235,6 +235,11 @@ then
   # Linux users are used to "locate" command
   alias locate="mdfind"
 
+  # Set a DNS server to locally running dnscrypt
+  alias dnson="networksetup -setdnsservers Wi-Fi 127.0.0.1"
+  # Set DNS servers to DHCP provided to be able to go through captive portal
+  alias dnsoff="networksetup -setdnsservers Wi-Fi empty"
+
 elif [ $(uname) == "Linux" ]
 then
 
