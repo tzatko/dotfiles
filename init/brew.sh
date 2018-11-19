@@ -158,6 +158,8 @@ brew install dnscrypt-proxy
 
 brew install fpp
 
+brew install rclone
+
 cat << EOF
 
 For setup instructions for dnscrypt-proxy (encrypted DNS requests) read:
