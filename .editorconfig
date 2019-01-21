@@ -2,7 +2,43 @@ root = true
 
 [*]
 charset = utf-8
-indent_style = tab
+indent_style = space
+indent_size = 4
+tab_width = 2
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
+
+[*.py]
+indent_style = space
+indent_size = 4
+
+# Tab indentation (no size specified)
+[Makefile]
+indent_style = tab
+
+# XML Configuration Files
+[*.{xml,config}]
+indent_size = 2
+
+# JSON Files
+[*.{json,json5}]
+indent_size = 2
+
+# YAML Files
+[*.{yml,yaml}]
+indent_size = 2
+
+# Markdown Files
+[*.md]
+trim_trailing_whitespace = false
+
+# Web Files
+[*.{htm,html,js,ts,tsx,css,sass,scss,less,svg,vue}]
+indent_size = 2
+insert_final_newline = true
+
+
+[{package.json,.travis.yml}]
+indent_style = space
+indent_size = 2
