@@ -49,7 +49,9 @@ if [ $(uname) == "Darwin" ]
 				brew install grep
 				brew install openssh
 				brew install screen
-				brew install homebrew/php/php56 --with-gmp
+        brew install php
+        brew install gmp
+
 
 				# Install font tools.
 				brew tap bramstein/webfonttools
