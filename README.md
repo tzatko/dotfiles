@@ -2,19 +2,9 @@
 
 Forked from [Mathias](https://github.com/mathiasbynens/dotfiles). 
 
-# Shameless hiring insert
-
-Are you a command-line ninja and live in or near Bratislava Slovakia?
-
-My company [DIGMIA](http://www.digmia.com/) is [hiring](http://www.digmia.com/pages/sk/o-nas/zamestnanie.html)
-and we want smart and cool people in our team. Linux ninjas and internal developer wanted!
-
-Our [sister company Essential Data](http://essential-data.sk) is
-[hiring Ruby and Java developers and devops](http://www.essential-data.sk/pracujte-pre-nas/). And if you really
-like hacking (i.e. breaking into systems), check out [open positions in Citadelo](https://www.citadelo.sk/o-citadelo/kariera/),
-we are hiring in Bratislava and in Prague.
-
 ## Installation
+
+**Warning:** If you want to give these dotfiles a try, you should first fork this repository, review the code, and remove things you don’t want or need. Don’t blindly use my settings unless you know what that entails. Use at your own risk!
 
 ### Using Git and the bootstrap script
 
@@ -56,7 +46,43 @@ Here’s an example `~/.path` file that adds `/usr/local/bin` to the `$PATH`:
 export PATH="/usr/local/bin:$PATH"
 ```
 
-### Add custom commands without creating a new fork
+### Fast setup
+
+If you don't want to read about Sensible macOS defaults, Janus install,
+and homebrew setup, you can get fast results with 
+
+```bash
+./init/init.sh
+```
+
+### Sensible macOS defaults
+
+When setting up a new Mac, you may want to set some sensible macOS defaults:
+
+```bash
+./init/macos
+```
+
+### Install Homebrew formulae
+
+When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course). I also use ```brew cask``` for binary applications, because it's easier to autoupdate everything using ```update``` alias using homebrew then letting each and every app notify my about updates.
+
+```bash
+./init/brew.sh && ./init/brew-cask.sh
+```
+
+### Install Janus for vim
+
+Janus is a dotfiles framework for vim. The integration is there by default and you can use it with:
+
+```bash
+./init/install-janus.sh
+```
+
+If you don't install Janus, dotfiles will try to fallback to some sensible vim defaults.
+
+
+### Add custom commands and settings without creating a new fork
 
 If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
 
@@ -75,21 +101,33 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 
 You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/jooray/dotfiles/fork) instead, though.
 
-### Sensible OS X defaults
+You can also use `~/.gitconfig.local` and `~/.vimrc.local`
 
-When setting up a new Mac, you may want to set some sensible OS X defaults:
+Another file that allows you to configure some aspects is ~/.dotconf.
+You can see ~/.dotconf.example for an example configuration. It is
+sourced before the main files, so if you need to set some environment
+variable before other settings, you can do so. The main setting you
+could need to change is the name of the interface that connects you to
+the internet:
 
 ```bash
-./.osx
+export LOCAL_NET_IFACE="en0"
 ```
+
+## Examples
+
+If you would like to see some examples of .aliases or .functions usage, have a look at [EXAMPLES.md](https://github.com/jooray/dotfiles/blob/master/EXAMPLES.md).
 
 ### Install Homebrew formulae
 
-When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course). I also use ```brew cask``` for binary applications, because it's easier to autoupdate everything using ```update``` alias using homebrew then letting each and every app notify my about updates.
+When setting up a new Mac, you may want to install some common [Homebrew](https://brew.sh/) formulae (after installing Homebrew, of course) and Homebrew casks (binary packages installed through Homebrew interface):
 
 ```bash
-./.brew.sh && ./.brew-cask.sh
+./init/brew.sh
+./init/brew-cask.sh
 ```
+
+Some of the functionality of these dotfiles depends on formulae installed by `brew.sh`. If you don’t plan to run `brew.sh`, you should look carefully through the script and manually install any particularly important ones. A good example is Bash/Git completion: the dotfiles use a special version from Homebrew.
 
 ## Feedback
 
@@ -98,53 +136,45 @@ Suggestions/improvements
 
 ## Improvements and changes from Matthias's dotfiles
 
-* Customization for my needs (e.g. not using Sublime Text, going easy on some osx defaults)
+* Customization for my needs (e.g. not using Sublime Text, going easy on some macOS defaults)
 * Should work on Linux as well
 * Vagrant commands
 * Bash prompt - change the color of '$' in the prompt to red if last process exited with error
-* Customization of screen
+* Customization of screen and [tmux](https://github.com/gpakosz/.tmux)
 * Don't force en_US locale, this is per user (I set mine in ~/.extra)
 * cp_p command to copy with progress (uses rsync)
-* OS X hot corners adjusted my needs
+* macOS hot corners adjusted my needs
 * Don't install JavaScript based stuff, install gpg and apg
-* Sane defaults on Linux, don't alias functions that don't work. 
-* Change ip alias to myip (ip is a system command on Linux). Alias ip to myip on Mac OS X. Support colorification for ip
+* Sane defaults on Linux, don't alias functions that don't work.
+* Change ip alias to myip (ip is a system command on Linux). Alias ip to myip on macOS. Support colorification for ip
 * Add support for directory jumper (z). Install it either using brew (.brew.sh) or to ~/.z.sh
-* Better support for [grc](https://github.com/garabik/grc) - on OS X. This adds colour to your boring unix commands :). Just install it with brew (included in .brew.sh)
-* Make "update" work on OS X, Linux (yum-based and apt-get-based distributions)
-* Support for [thefuck](https://github.com/nvbn/thefuck), which allows you to fix some common command-line mistakes. "fuck" command by default asks you to confirm the command it wants to execute.
+* Better support for [grc](https://github.com/garabik/grc) - on macOS. This adds colour to your boring unix commands :). Just install it with brew (included in .brew.sh)
+* Make "update" work on macOS, Linux (yum-based and apt-get-based distributions)
+* Support for [transfer.sh](https://transfer.sh/)
 
 ## Authors
-
-Original: 
-
-| [![twitter/mathias](http://gravatar.com/avatar/24e08a9ea84deb17ae121074d0f17125?s=70)](http://twitter.com/mathias "Follow @mathias on Twitter") |
-|---|
-| [Mathias Bynens](https://mathiasbynens.be/) |
-
-Modifications:
 
 | [![twitter/jurbed](https://www.gravatar.com/avatar/59cd93d4261a85b1b2a6c210b0b4a4ce?s=70)](http://twitter.com/jurbed "Follow @jurbed on Twitter") |
 |---|
 | [Juraj Bednar](https://juraj.bednar.sk/) |
 
-
 ## Thanks to…
 
-* [Mathias Bynens](https://mathiasbynens.be/) and his [dotfiles repository](https://github.com/mathiasbynens/dotfiles)
-* @ptb and [his _OS X Lion Setup_ repository](https://github.com/ptb/Mac-OS-X-Lion-Setup)
+* [Mathias Bynens](https://mathiasbynens.be/) and his [dotfiles repository](https://github.com/mathiasbynens/dotfiles) - this is our upstream project
+* [dotphiles](https://github.com/dotphiles/dotphiles) for inspiration and some configuration scripts
+* [janus](https://github.com/carlhuda/janus) - dotfiles repository for vim that we use
+* @ptb and [his _macOS Setup_ repository](https://github.com/ptb/mac-setup)
 * [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
-* [Chris Gerke](http://www.randomsquared.com/) and his [tutorial on creating an OS X SOE master image](http://chris-gerke.blogspot.com/2012/04/mac-osx-soe-master-image-day-7.html) + [_Insta_ repository](https://github.com/cgerke/Insta)
 * [Cătălin Mariș](https://github.com/alrra) and his [dotfiles repository](https://github.com/alrra/dotfiles)
-* [Gianni Chiappetta](http://gf3.ca/) for sharing his [amazing collection of dotfiles](https://github.com/gf3/dotfiles)
+* [Gianni Chiappetta](https://butt.zone/) for sharing his [amazing collection of dotfiles](https://github.com/gf3/dotfiles)
 * [Jan Moesen](http://jan.moesen.nu/) and his [ancient `.bash_profile`](https://gist.github.com/1156154) + [shiny _tilde_ repository](https://github.com/janmoesen/tilde)
 * [Lauri ‘Lri’ Ranta](http://lri.me/) for sharing [loads of hidden preferences](http://osxnotes.net/defaults.html)
-* [Matijs Brinkhuis](http://hotfusion.nl/) and his [dotfiles repository](https://github.com/matijs/dotfiles)
+* [Matijs Brinkhuis](https://matijs.brinkhu.is/) and his [dotfiles repository](https://github.com/matijs/dotfiles)
 * [Nicolas Gallagher](http://nicolasgallagher.com/) and his [dotfiles repository](https://github.com/necolas/dotfiles)
-* [Sindre Sorhus](http://sindresorhus.com/)
-* [Tom Ryder](http://blog.sanctum.geek.nz/) and his [dotfiles repository](https://github.com/tejr/dotfiles)
-* [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [OSXDefaults project](https://github.com/kevinSuttle/OSXDefaults), which aims to provide better documentation for [`~/.osx`](https://mths.be/osx)
-* [Haralan Dobrev](http://hkdobrev.com/)
+* [Sindre Sorhus](https://sindresorhus.com/)
+* [Tom Ryder](https://sanctum.geek.nz/) and his [dotfiles repository](https://sanctum.geek.nz/cgit/dotfiles.git/about)
+* [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [macOS-Defaults project](https://github.com/kevinSuttle/macOS-Defaults), which aims to provide better documentation for [`~/.macos`](https://mths.be/macos)
+* [Haralan Dobrev](https://hkdobrev.com/)
+* [Dominee](https://github.com/dominee/Termux-dotfiles) for EXAMPLES.md
+  and a few aliases plus better Linux support
 * anyone who [contributed a patch](https://github.com/jooray/dotfiles/contributors) or [made a helpful suggestion](https://github.com/jooray/dotfiles/issues) - either here or to the original dotfiles
-
-

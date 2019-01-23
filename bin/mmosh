@@ -1,0 +1,7 @@
+#!/usr/local/bin/bash
+
+# mosh with mouse scrolling support
+# (https://github.com/mobile-shell/mosh/issues/101)
+# needs HEAD version of mosh, recent tmux
+perl -E ' print "\e[?1005h\e[?1002h" '
+/usr/local/bin/mosh $*

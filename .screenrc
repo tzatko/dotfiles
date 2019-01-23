@@ -107,7 +107,7 @@ terminfo  xterm 'XC=K%,%\E(B,[\304,\\\\\326,]\334,{\344,|\366,}\374,~\337'
 
 hardstatus on
 hardstatus alwayslastline
-hardstatus string "%{.bG} %d.%m %c%{.bW} | %{.bW}%-w%{.bR}(%n %t)%{-}%+w %=%{..G} %l"
+hardstatus string "%{.kG} %d.%m %c%{..y} | %{...}%-w%{..R}(%n %t)%{-}%+w %=%{..G} %l"
 
 sorendition 01 47
 

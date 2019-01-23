@@ -1,19 +1,26 @@
-# Simple calculator
+#!/usr/bin/env bash
+
 function calc() {
-	local result="";
-	result="$(printf "scale=10;$*\n" | bc --mathlib | tr -d '\\\n')";
-	#                       └─ default (when `--mathlib` is used) is 20
-	#
-	if [[ "$result" == *.* ]]; then
-		# improve the output for decimal numbers
-		printf "$result" |
-		sed -e 's/^\./0./'        `# add "0" for cases like ".5"` \
-		    -e 's/^-\./-0./'      `# add "0" for cases like "-.5"`\
-		    -e 's/0*$//;s/\.$//';  # remove trailing zeros
-	else
-		printf "$result";
-	fi;
-	printf "\n";
+
+    local result=""
+
+    #                       ┌─ default (when --mathlib is used) is 20
+    result="$( printf "scale=10;%s\n" "$*" | bc --mathlib | tr -d "\\\n" )"
+    #                         remove the tailing "\" and "\n" ─┘
+    #                         (large numbers are printed on multiple lines)
+
+    if [[ "$result" == *.* ]]; then
+
+        # Improve the output for decimal numbers.
+
+        printf "%s" "$result" | sed -e "s/^\./0./" -e "s/^-\./-0./" -e "s/0*$//;s/\.$//"
+
+    else
+        printf "%s" "$result"
+    fi
+
+    printf "\n"
+
 }
 
 # Create a new directory and enter it
@@ -27,8 +34,8 @@ function targz() {
 	tar -cvf "${tmpFile}" --exclude=".DS_Store" "${@}" || return 1;
 
 	size=$(
-		stat -f"%z" "${tmpFile}" 2> /dev/null; # OS X `stat`
-		stat -c"%s" "${tmpFile}" 2> /dev/null # GNU `stat`
+		stat -f"%z" "${tmpFile}" 2> /dev/null; # macOS `stat`
+		stat -c"%s" "${tmpFile}" 2> /dev/null;  # GNU `stat`
 	);
 
 	local cmd="";
@@ -43,10 +50,16 @@ function targz() {
 		fi;
 	fi;
 
-	echo "Compressing .tar using \`${cmd}\`…";
+	echo "Compressing .tar ($((size / 1000)) kB) using \`${cmd}\`…";
 	"${cmd}" -v "${tmpFile}" || return 1;
 	[ -f "${tmpFile}" ] && rm "${tmpFile}";
-	echo "${tmpFile}.gz created successfully.";
+
+	zippedSize=$(
+		stat -f"%z" "${tmpFile}.gz" 2> /dev/null; # macOS `stat`
+		stat -c"%s" "${tmpFile}.gz" 2> /dev/null; # GNU `stat`
+	);
+
+	echo "${tmpFile}.gz ($((zippedSize / 1000)) kB) created successfully.";
 }
 
 # Determine size of a file or total size of a directory
@@ -59,7 +72,7 @@ function fs() {
 	if [[ -n "$@" ]]; then
 		du $arg -- "$@";
 	else
-		du $arg .[^.]* *;
+		du $arg .[^.]* ./*;
 	fi;
 }
 
@@ -80,13 +93,12 @@ function dataurl() {
 	echo "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')";
 }
 
-# Create a git.io short URL
-function gitio() {
-	if [ -z "${1}" -o -z "${2}" ]; then
-		echo "Usage: \`gitio slug url\`";
-		return 1;
-	fi;
-	curl -i http://git.io/ -F "url=${2}" -F "code=${1}";
+# See if my connection works - or invoke ping
+function p() {
+  if [ -z $1 ]
+    then ping 1.1.1.1
+    else ping $*
+   fi
 }
 
 # Start an HTTP server from a directory, optionally specifying the port
@@ -102,7 +114,10 @@ function server() {
 # (Requires PHP 5.4.0+.)
 function phpserver() {
 	local port="${1:-4000}";
-	local ip=$(ipconfig getifaddr en0);
+	local ip=$(ipconfig getifaddr $LOCAL_NET_IFACE);
+  if [ -z ${ip} ]; then
+    ip="127.0.0.1"
+  fi
 	sleep 1 && open "http://${ip}:${port}/" &
 	php -S "${ip}:${port}";
 }
@@ -135,33 +150,6 @@ function digga() {
     else
      dig +nocmd "$1" any +multiline +noall +answer;
 	fi
-}
-
-# UTF-8-encode a string of Unicode symbols
-function escape() {
-	printf "\\\x%s" $(printf "$@" | xxd -p -c1 -u);
-	# print a newline unless we’re piping the output to another program
-	if [ -t 1 ]; then
-		echo ""; # newline
-	fi;
-}
-
-# Decode \x{ABCD}-style Unicode escape sequences
-function unidecode() {
-	perl -e "binmode(STDOUT, ':utf8'); print \"$@\"";
-	# print a newline unless we’re piping the output to another program
-	if [ -t 1 ]; then
-		echo ""; # newline
-	fi;
-}
-
-# Get a character’s Unicode code point
-function codepoint() {
-	perl -e "use utf8; print sprintf('U+%04X', ord(\"$@\"))";
-	# print a newline unless we’re piping the output to another program
-	if [ -t 1 ]; then
-		echo ""; # newline
-	fi;
 }
 
 # Show all the names (CNs and SANs) listed in the SSL certificate
@@ -208,6 +196,28 @@ function v() {
 	fi;
 }
 
+
+# Normalize `open` across Linux, macOS, and Windows.
+# This is needed to make the `o` function (see below) cross-platform.
+if [ ! $(uname -s) = 'Darwin' ]; then
+	if grep -q Microsoft /proc/version; then
+		# Ubuntu on Windows using the Linux subsystem
+		alias open='explorer.exe';
+	else
+		alias open='xdg-open';
+	fi
+fi
+
+# `o` with no arguments opens the current directory, otherwise opens the given
+# location
+function o() {
+	if [ $# -eq 0 ]; then
+		open .;
+	else
+		open "$@";
+	fi;
+}
+
 # `tre` is a shorthand for `tree` with hidden files and color enabled, ignoring
 # the `.git` directory, listing directories first. The output gets piped into
 # `less` with options to preserve color and line numbers, unless the output is
@@ -221,6 +231,50 @@ cp_p () {
   rsync -WavP --human-readable --progress "$1" "$2"
 }
 
+# transfer.sh from https://gist.github.com/nl5887/a511f172d3fb3cd0e42d
+transfer() {
+    if [ $# -eq 0 ];
+    then
+        echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"
+        return 1
+    fi
+
+    tmpfile=$( mktemp -t transferXXX )
+
+    file=$1
+
+    if tty -s;
+    then
+        basefile=$(basename "$file" | sed -e 's/[^a-zA-Z0-9._-]/-/g')
+
+        if [ ! -e "$file" ];
+        then
+            echo "File $file doesn't exists."
+            return 1
+        fi
+
+        if [ -d "$file" ];
+        then
+            # zip directory and transfer
+            zipfile=$( mktemp -t transferXXX.zip )
+						t_dirname=$(dirname "$file")
+						t_basename=$(basename "$file")
+            cd "$t_dirname" && zip -r -q - "$t_basename" >> $zipfile
+            curl --progress-bar --upload-file "$zipfile" "https://transfer.sh/$basefile.zip" >> $tmpfile
+            rm -f $zipfile
+        else
+            # transfer file
+            curl --progress-bar --upload-file "$file" "https://transfer.sh/$basefile" >> $tmpfile
+        fi
+    else
+        # transfer pipe
+        curl --progress-bar --upload-file "-" "https://transfer.sh/$file" >> $tmpfile
+    fi
+
+    cat $tmpfile
+    rm -f $tmpfile
+}
+
 if [ $(uname) == "Darwin" ]
 then
 
@@ -229,16 +283,63 @@ then
   	cd "$(osascript -e 'tell app "Finder" to POSIX path of (insertion location as alias)')";
   }
 
-  # `o` with no arguments opens the current directory, otherwise opens the given
-  # location
-  function o() {
-  	if [ $# -eq 0 ]; then
-  		open .;
-  	else
-  		open "$@";
-  	fi;
-  }
- fi 
+	# who is using the laptop's iSight camera?
+	camerausedby() {
+			echo "Checking to see who is using the iSight camera… 📷"
+			usedby=$(lsof | grep -w "AppleCamera\|USBVDC\|iSight" | awk '{printf $2"\n"}' | xargs ps)
+			echo -e "Recent camera uses:\n$usedby"
+	}
+
+fi 
+
+# movie goodies
+# animated gifs from any video
+# from alex sexton   gist.github.com/SlexAxton/4989674
+gifify() {
+  if [[ -n "$1" ]]; then
+    if [[ $2 == '--good' ]]; then
+      ffmpeg -i $1 -r 10 -vcodec png out-static-%05d.png
+      time convert -verbose +dither -layers Optimize -resize 900x900\> out-static*.png  GIF:- | gifsicle --colors 128 --delay=5 --loop --optimize=3 --multifile - > $1.gif
+      rm out-static*.png
+    else
+      ffmpeg -i $1 -s 600x400 -pix_fmt rgb24 -r 10 -f gif - | gifsicle --optimize=3 --delay=3 > $1.gif
+    fi
+  else
+    echo "proper usage: gifify <input_movie.mov>. You DO need to include extension."
+  fi
+}
+
+# turn that video into webm.
+# brew reinstall ffmpeg --with-libvpx
+webmify(){
+	ffmpeg -i $1 -vcodec libvpx -acodec libvorbis -isync -copyts -aq 80 -threads 3 -qmax 30 -y $2 $1.webm
+ }
+
+ffconcat(){
+	if [ -e "$1" ]; then
+		echo "Error: First argument is the output file and it should _not_ exist ($1)"
+	else
+	  ffmpeg -f concat -safe 0 -i <(printf "file '$PWD/%s'\n" "${@:2}") -c copy "$1"
+	fi
+}
+
+# weather forecast
+function weather() {
+	if [ -z "$1" ]; then
+		curl -4 -A Curl wttr.in
+	else
+		curl -4 -A Curl wttr.in/`urlencode "$*"`
+	fi
+}
+
+# How are the cryptos doing? (Rates in EUR, you can change it to USD)
+function cr() {
+	if [ -z "$1" ]; then
+    curl -A cURL -s EUR.rate.sx/?q | tail -n +7
+	else
+    curl -A cURL -s EUR.rate.sx/`urlencode "$*"`?q
+	fi
+}
 
 # Vagrant goodies
 

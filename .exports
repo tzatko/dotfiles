@@ -1,16 +1,46 @@
+#!/usr/bin/env bash
+
+# This can be configured on a per-machine basis in ~/.dotconf
+if [ -z $LOCAL_NET_IFACE ]
+then
+  if [ $(uname) == "Darwin" ]
+  then
+   export LOCAL_NET_IFACE="en0"
+  elif [ $(uname) == "Linux" ]
+  then
+   export LOCAL_NET_IFACE="wlan0"
+  fi
+fi
+
 # Make vim the default editor.
 export EDITOR='vim';
 
 # Enable persistent REPL history for `node`.
-NODE_REPL_HISTORY_FILE=~/.node_history;
+export NODE_REPL_HISTORY=~/.node_history;
 # Allow 32³ entries; the default is 1000.
-NODE_REPL_HISTORY_SIZE='32768';
+export NODE_REPL_HISTORY_SIZE='32768';
+# Use sloppy mode by default, matching web browsers.
+export NODE_REPL_MODE='sloppy';
+
+# Make Python use UTF-8 encoding for output to stdin, stdout, and stderr.
+export PYTHONIOENCODING='UTF-8';
 
 # Highlight section titles in manual pages.
 export LESS_TERMCAP_md="${yellow}";
 
-# Don’t clear the screen after quitting a manual page.
-export MANPAGER='less -X';
+# Less settings
+if which less > /dev/null 2>&1;then
+	export PAGER="less"
+	export LESS="-R"
+	# nicer highlighting
+	if which src-hilite-lesspipe.sh > /dev/null 2>&1; then
+		export LESSOPEN="| src-hilite-lesspipe.sh %s"
+	fi
 
-# Always enable colored `grep` output.
-export GREP_OPTIONS='--color=auto';
+	# Don’t clear the screen after quitting a manual page.
+	export MANPAGER='less -X';
+fi
+
+# Avoid issues with `gpg` as installed via Homebrew.
+# https://stackoverflow.com/a/42265848/96656
+export GPG_TTY=$(tty);
