@@ -278,4 +278,4 @@ fi
 alias path='echo -e ${PATH//:/\\n}'
 
 # compatibility with older version of dotfiles, but we switched to ffsend (send.firefox.com)
-alias transfer='ffsend upload'
+alias transfer='ffsend upload --copy'
