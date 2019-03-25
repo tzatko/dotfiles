@@ -150,7 +150,6 @@ Suggestions/improvements
 * Add support for directory jumper (z). Install it either using brew (.brew.sh) or to ~/.z.sh
 * Better support for [grc](https://github.com/garabik/grc) - on macOS. This adds colour to your boring unix commands :). Just install it with brew (included in .brew.sh)
 * Make "update" work on macOS, Linux (yum-based and apt-get-based distributions)
-* Support for [transfer.sh](https://transfer.sh/)
 
 ## Authors
 
