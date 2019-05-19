@@ -70,6 +70,7 @@ if [ $(uname) == "Darwin" ]
 # Install some other useful utilities like `sponge`.
 brew install moreutils
 brew install mosh
+brew install jq
 
 # Install `wget` with IRI support.
 brew install wget --with-iri
