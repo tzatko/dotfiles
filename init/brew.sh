@@ -122,6 +122,7 @@ brew install testssl
 brew install tree
 brew install webkit2png
 brew install zopfli
+brew install zstd
 brew install z
 brew install selecta
 brew install tmux
