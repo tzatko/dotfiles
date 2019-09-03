@@ -83,6 +83,10 @@ alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # URL-encode strings
 alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
 
+# Merge PDF files, preserving hyperlinks
+# Usage: `mergepdf input{1,2,3}.pdf`
+alias mergepdf='gs -q -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=_merged.pdf'
+
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
@@ -93,8 +97,9 @@ for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
 	alias "${method}"="lwp-request -m '${method}'"
 done
 
-# Make Grunt print stack traces by default
-command -v grunt > /dev/null && alias grunt="grunt --stack"
+# Stuff I never really use but cannot delete either because of http://xkcd.com/530/
+alias stfu="osascript -e 'set volume output muted true'"
+alias pumpitup="osascript -e 'set volume output volume 100'"
 
 # Kill all the tabs in Chrome to free up memory
 # [C] explained: http://www.commandlinefu.com/commands/view/402/exclude-grep-from-your-grepped-output-of-ps-alias-included-in-description
@@ -102,12 +107,6 @@ alias chromekill="ps ux | grep '[C]hrome Helper --type=renderer' | grep -v exten
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec ${SHELL} -l"
-
-# vagrant goodies
-alias vp='vagrant provision'
-alias vup='vagrant up'
-alias vssh='vagrant ssh'
-alias vdestroy='vagrant destroy'
 
 # generic colouriser
 GRC="$(type -p grc)"
@@ -170,10 +169,6 @@ then
 
 	# View HTTP traffic
   alias sniff="sudo ngrep -d $LOCAL_NET_IFACE -t '^(GET|POST) ' 'tcp and port 80'"
-
-  # Merge PDF files
-  # Usage: `mergepdf -o output.pdf input{1,2,3}.pdf`
-  alias mergepdf='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
   # Disable Spotlight
   alias spotoff="sudo mdutil -a -i off"
