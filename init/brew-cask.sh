@@ -38,7 +38,6 @@ brew cask install quicklook-csv
 brew cask install webpquicklook
 brew cask install qlcolorcode
 brew cask install suspicious-package
-brew cask install qlstephen
 
 # fonts
 brew tap caskroom/fonts
