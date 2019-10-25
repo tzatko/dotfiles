@@ -133,7 +133,7 @@ brew install gpgme
 brew install detox
 
 # Install password generator
-brew install apg
+brew install pwgen
 
 # Install Node.js. Note: this installs `npm` too, using the recommended
 # installation method.

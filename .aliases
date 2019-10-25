@@ -271,3 +271,6 @@ alias path='echo -e ${PATH//:/\\n}'
 # compatibility with older version of dotfiles, but we switched to ffsend (send.firefox.com)
 alias transfer='ffsend upload --copy'
 alias json='jq'
+
+# generate password
+alias pw='pwgen -cns -r "yz" -B -1 12 1'
