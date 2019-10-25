@@ -144,7 +144,6 @@ Suggestions/improvements
 * Don't force en_US locale, this is per user (I set mine in ~/.extra)
 * cp_p command to copy with progress (uses rsync)
 * macOS hot corners adjusted my needs
-* Don't install JavaScript based stuff, install gpg and apg
 * Sane defaults on Linux, don't alias functions that don't work.
 * Change ip alias to myip (ip is a system command on Linux). Alias ip to myip on macOS. Support colorification for ip
 * Add support for directory jumper (z). Install it either using brew (.brew.sh) or to ~/.z.sh
