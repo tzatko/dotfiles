@@ -469,4 +469,10 @@ function vcssh {
 	[ -e "$cssh" ] && bash -c "cssh --options '-F ${cssh}${screen}$options' $cmd"
 }
 
-
+# cryptocurrency conversions
+function sattobtc() { calc "$1" '/' 100000000 | tee >(pbcopy) ; }
+function btctosat() { calc "$1" '*' 100000000 | tee >(pbcopy) ; }
+function eurtobtc() { curl -A cURL -s https://btc.rate.sx/`urlencode "$1"`EUR | tee >(pbcopy) ; }
+function btctoeur() { curl -A cURL -s https://eur.rate.sx/`urlencode "$1"`BTC| tee >(pbcopy) ; }
+function usdtobtc() { curl -A cURL -s https://btc.rate.sx/`urlencode "$1"`USD | tee >(pbcopy) ; }
+function btctousd() { curl -A cURL -s https://usd.rate.sx/`urlencode "$1"`BTC| tee >(pbcopy) ; }
