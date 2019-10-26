@@ -247,6 +247,14 @@ gifify() {
   fi
 }
 
+qr() {
+  if [ -z "$1" ]; then
+      segno `pbpaste`
+  else
+      segno "$*"
+  fi
+}
+
 # turn that video into webm.
 # brew reinstall ffmpeg --with-libvpx
 webmify(){
