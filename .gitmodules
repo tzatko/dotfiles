@@ -1,0 +1,9 @@
+[submodule ".vim/pack/dotfiles/start/vim-polyglot"]
+	path = .vim/pack/dotfiles/start/vim-polyglot
+	url = https://github.com/sheerun/vim-polyglot
+[submodule ".vim/pack/dotfiles/start/editorconfig-vim"]
+	path = .vim/pack/dotfiles/start/editorconfig-vim
+	url = https://github.com/editorconfig/editorconfig-vim
+[submodule ".vim/pack/dotfiles/start/plaintasks.vim"]
+	path = .vim/pack/dotfiles/start/plaintasks.vim
+	url = https://github.com/elentok/plaintasks.vim
