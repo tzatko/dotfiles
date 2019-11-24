@@ -476,3 +476,13 @@ function eurtobtc() { curl -A cURL -s https://btc.rate.sx/`urlencode "$1"`EUR | 
 function btctoeur() { curl -A cURL -s https://eur.rate.sx/`urlencode "$1"`BTC| tee >(pbcopy) ; }
 function usdtobtc() { curl -A cURL -s https://btc.rate.sx/`urlencode "$1"`USD | tee >(pbcopy) ; }
 function btctousd() { curl -A cURL -s https://usd.rate.sx/`urlencode "$1"`BTC| tee >(pbcopy) ; }
+
+# nmap through shodan
+function nmapshodan() {
+    if [ -r ~/.shodan-api ]; then
+        . ~/.shodan-api
+        nmap -sn -Pn -n --script shodan-api --script-args shodan-api.apikey=${SHODAN_APIKEY} $*
+    else
+        echo "Define SHODAN_APIKEY in ~/.shodan-api"
+    fi
+}
