@@ -114,6 +114,11 @@ elseif filereadable(glob('~/.local/lib/python2.7/site-packages/powerline/binding
 	source ~/.local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 endif
 
+if &diff
+    " ignore whitespace in vimdiff mode
+    set diffopt+=iwhite
+endif
+
 if filereadable(glob('~/.vimrc.local'))
 	source ~/.vimrc.local
 endif
