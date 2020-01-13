@@ -173,6 +173,7 @@ brew install fpp
 brew install rclone
 
 brew install ffsend
+brew install magic-wormhole
 
 cat << EOF
 
