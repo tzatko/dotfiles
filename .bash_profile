@@ -31,7 +31,7 @@ export HISTTIMEFORMAT='%F %T '
 
 # keep history up to date, across sessions, in realtime
 #  http://unix.stackexchange.com/a/48113
-export HISTCONTROL=ignoredups:erasedups         # no duplicate entries
+export HISTCONTROL=ignoredups:erasedups:ignorespace  # no duplicate entries, ignore commands starting with space
 export HISTSIZE=100000                          # big big history (default is 500)
 export HISTFILESIZE=$HISTSIZE                   # big big history
 which shopt > /dev/null 2>&1 && shopt -s histappend  # append to history, don't overwrite it
