@@ -31,7 +31,7 @@ set -- -f; source bootstrap.sh
 To install these dotfiles without Git:
 
 ```bash
-cd; curl -#L https://github.com/jooray/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt,EXAMPLES.md}
+cd; curl -#L https://github.com/jooray/dotfiles/tarball/main | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt,EXAMPLES.md}
 ```
 
 To update later on, just run that command again.
@@ -110,7 +110,7 @@ export LOCAL_NET_IFACE="en0"
 
 ## Examples
 
-If you would like to see some examples of .aliases or .functions usage, have a look at [EXAMPLES.md](https://github.com/jooray/dotfiles/blob/master/EXAMPLES.md).
+If you would like to see some examples of .aliases or .functions usage, have a look at [EXAMPLES.md](https://github.com/jooray/dotfiles/blob/main/EXAMPLES.md).
 
 ### Install Homebrew formulae
 
