@@ -178,13 +178,10 @@
 
 	insteadOf = "gist:"
 
-<<<<<<< HEAD
+[init]
+
+	templateDir = ~/.config/git/template/
 [include]
 
 		path = ~/.gitconfig.local
 
-=======
-[init]
-
-	templateDir = ~/.config/git/template/
->>>>>>> 9eecabab0b63b9c334dc96e3ceb682cb679ba7b2
