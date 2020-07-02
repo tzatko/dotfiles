@@ -68,6 +68,11 @@ alias yn='[ $[ $RANDOM % 2 ] == 0 ] && echo "Yes" || echo "No"'
 alias myip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
+# Scanning networks
+
+# scan network with arp requests (parameter: local network like 192.168.1.0/24)
+alias nmap-arp="nmap -r -sn -PR"
+
 # Canonical hex dump; some systems have this symlinked
 command -v hd > /dev/null || alias hd="hexdump -C"
 
