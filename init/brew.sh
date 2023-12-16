@@ -32,14 +32,6 @@ if [ $(uname) == "Darwin" ]
 				brew install bash
 				brew install bash-completion2
 
-				brew tap homebrew/completions
-				brew install homebrew/completions/brew-cask-completion
-				brew install homebrew/completions/bundler-completion
-				brew install homebrew/completions/gem-completion
-				brew install homebrew/completions/kitchen-completion
-				brew install homebrew/completions/rake-completion
-				brew install homebrew/completions/vagrant-completion
-
 				# Switch to using brew-installed bash as default shell
         if ! fgrep -q "${BREW_PREFIX}/bin/bash" /etc/shells; then
           echo "${BREW_PREFIX}/bin/bash" | sudo tee -a /etc/shells;
@@ -67,6 +59,9 @@ if [ $(uname) == "Darwin" ]
 				# command line interface for Mac App Store
 				brew install mas
 
+        # command line interface for macOS
+        brew install m-cli
+
         brew install reattach-to-user-namespace # tmux copy to macos clipboard
   fi
 
@@ -74,9 +69,7 @@ if [ $(uname) == "Darwin" ]
 brew install moreutils
 brew install mosh
 brew install jq
-
-# Install `wget` with IRI support.
-brew install wget --with-iri
+brew install wget
 
 # Install some CTF tools; see https://github.com/ctfs/write-ups.
 brew install aircrack-ng
@@ -153,9 +146,7 @@ brew install vimpager
 # Install atool - provides apack and aunpack - who wants to remember all
 # zip/tar/7z/... switches?
 brew install atool
-
-# for gifify and webmify
-brew install ffmpeg --with-libvpx --with-faac
+brew install ffmpeg
 brew install gifsicle
 
 # metadata removal tool (privacy)
@@ -174,6 +165,8 @@ brew install rclone
 
 brew install ffsend
 brew install magic-wormhole
+
+brew install nnn
 
 cat << EOF
 
