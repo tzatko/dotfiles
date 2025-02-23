@@ -2,12 +2,14 @@
 
 cd "$(dirname "${BASH_SOURCE}")";
 
-git pull origin master;
+git pull origin main;
+git submodule update --init
 
 function doIt() {
 	exclude_options=""
   if [ -d ~/.vim/janus ]; then
 		exclude_options="--exclude .vimrc --exclude .vim --exclude .gvimrc"
+		echo "Warning! I stopped using Janus, please uninstall it, or simply copy .vim* over manually"
   fi
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
 		--exclude "README.md" --exclude "EXAMPLES.md" --exclude "LICENSE-MIT.txt" ${exclude_options} -avh --no-perms . ~;

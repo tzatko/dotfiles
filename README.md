@@ -31,7 +31,7 @@ set -- -f; source bootstrap.sh
 To install these dotfiles without Git:
 
 ```bash
-cd; curl -#L https://github.com/jooray/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt}
+cd; curl -#L https://github.com/jooray/dotfiles/tarball/main | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt,EXAMPLES.md}
 ```
 
 To update later on, just run that command again.
@@ -48,8 +48,7 @@ export PATH="/usr/local/bin:$PATH"
 
 ### Fast setup
 
-If you don't want to read about Sensible macOS defaults, Janus install,
-and homebrew setup, you can get fast results with 
+If you don't want to read about Sensible macOS defaults and homebrew setup, you can get fast results with 
 
 ```bash
 ./init/init.sh
@@ -65,22 +64,17 @@ When setting up a new Mac, you may want to set some sensible macOS defaults:
 
 ### Install Homebrew formulae
 
-When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course). I also use ```brew cask``` for binary applications, because it's easier to autoupdate everything using ```update``` alias using homebrew then letting each and every app notify my about updates.
+When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course). I also use brew cask for binary applications, because it's easier to autoupdate everything using 
+
+```bash
+update
+```
+
+alias using homebrew then letting each and every app notify my about updates.
 
 ```bash
 ./init/brew.sh && ./init/brew-cask.sh
 ```
-
-### Install Janus for vim
-
-Janus is a dotfiles framework for vim. The integration is there by default and you can use it with:
-
-```bash
-./init/install-janus.sh
-```
-
-If you don't install Janus, dotfiles will try to fallback to some sensible vim defaults.
-
 
 ### Add custom commands and settings without creating a new fork
 
@@ -116,7 +110,7 @@ export LOCAL_NET_IFACE="en0"
 
 ## Examples
 
-If you would like to see some examples of .aliases or .functions usage, have a look at [EXAMPLES.md](https://github.com/jooray/dotfiles/blob/master/EXAMPLES.md).
+If you would like to see some examples of .aliases or .functions usage, have a look at [EXAMPLES.md](https://github.com/jooray/dotfiles/blob/main/EXAMPLES.md).
 
 ### Install Homebrew formulae
 
@@ -144,13 +138,11 @@ Suggestions/improvements
 * Don't force en_US locale, this is per user (I set mine in ~/.extra)
 * cp_p command to copy with progress (uses rsync)
 * macOS hot corners adjusted my needs
-* Don't install JavaScript based stuff, install gpg and apg
 * Sane defaults on Linux, don't alias functions that don't work.
 * Change ip alias to myip (ip is a system command on Linux). Alias ip to myip on macOS. Support colorification for ip
 * Add support for directory jumper (z). Install it either using brew (.brew.sh) or to ~/.z.sh
 * Better support for [grc](https://github.com/garabik/grc) - on macOS. This adds colour to your boring unix commands :). Just install it with brew (included in .brew.sh)
 * Make "update" work on macOS, Linux (yum-based and apt-get-based distributions)
-* Support for [transfer.sh](https://transfer.sh/)
 
 ## Authors
 

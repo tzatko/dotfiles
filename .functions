@@ -76,14 +76,6 @@ function fs() {
 	fi;
 }
 
-# Use Git’s colored diff when available
-hash git &>/dev/null;
-if [ $? -eq 0 ]; then
-	function diff() {
-		git diff --no-index --color-words "$@";
-	}
-fi;
-
 # Create a data URL from a file
 function dataurl() {
 	local mimeType=$(file -b --mime-type "$1");
@@ -129,16 +121,6 @@ function gz() {
 	local ratio=$(LC_ALL="en_US" echo "$gzipsize * 100 / $origsize" | bc -l);
 	printf "orig: %d bytes\n" "$origsize";
 	LC_ALL="en_US" printf "gzip: %d bytes (%2.2f%%)\n" "$gzipsize" "$ratio";
-}
-
-# Syntax-highlight JSON strings or files
-# Usage: `json '{"foo":42}'` or `echo '{"foo":42}' | json`
-function json() {
-	if [ -t 0 ]; then # argument
-		python -mjson.tool <<< "$*" | pygmentize -l javascript;
-	else # pipe
-		python -mjson.tool | pygmentize -l javascript;
-	fi;
 }
 
 # Run `dig` and display the most useful info
@@ -231,50 +213,6 @@ cp_p () {
   rsync -WavP --human-readable --progress "$1" "$2"
 }
 
-# transfer.sh from https://gist.github.com/nl5887/a511f172d3fb3cd0e42d
-transfer() {
-    if [ $# -eq 0 ];
-    then
-        echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"
-        return 1
-    fi
-
-    tmpfile=$( mktemp -t transferXXX )
-
-    file=$1
-
-    if tty -s;
-    then
-        basefile=$(basename "$file" | sed -e 's/[^a-zA-Z0-9._-]/-/g')
-
-        if [ ! -e "$file" ];
-        then
-            echo "File $file doesn't exists."
-            return 1
-        fi
-
-        if [ -d "$file" ];
-        then
-            # zip directory and transfer
-            zipfile=$( mktemp -t transferXXX.zip )
-						t_dirname=$(dirname "$file")
-						t_basename=$(basename "$file")
-            cd "$t_dirname" && zip -r -q - "$t_basename" >> $zipfile
-            curl --progress-bar --upload-file "$zipfile" "https://transfer.sh/$basefile.zip" >> $tmpfile
-            rm -f $zipfile
-        else
-            # transfer file
-            curl --progress-bar --upload-file "$file" "https://transfer.sh/$basefile" >> $tmpfile
-        fi
-    else
-        # transfer pipe
-        curl --progress-bar --upload-file "-" "https://transfer.sh/$file" >> $tmpfile
-    fi
-
-    cat $tmpfile
-    rm -f $tmpfile
-}
-
 if [ $(uname) == "Darwin" ]
 then
 
@@ -290,7 +228,7 @@ then
 			echo -e "Recent camera uses:\n$usedby"
 	}
 
-fi 
+fi
 
 # movie goodies
 # animated gifs from any video
@@ -306,6 +244,14 @@ gifify() {
     fi
   else
     echo "proper usage: gifify <input_movie.mov>. You DO need to include extension."
+  fi
+}
+
+qr() {
+  if [ -z "$1" ]; then
+      segno `pbpaste`
+  else
+      segno "$*"
   fi
 }
 
@@ -523,4 +469,20 @@ function vcssh {
 	[ -e "$cssh" ] && bash -c "cssh --options '-F ${cssh}${screen}$options' $cmd"
 }
 
+# cryptocurrency conversions
+function sattobtc() { calc "$1" '/' 100000000 | tee >(pbcopy) ; }
+function btctosat() { calc "$1" '*' 100000000 | tee >(pbcopy) ; }
+function eurtobtc() { curl -A cURL -s https://btc.rate.sx/`urlencode "$1"`EUR | tee >(pbcopy) ; }
+function btctoeur() { curl -A cURL -s https://eur.rate.sx/`urlencode "$1"`BTC| tee >(pbcopy) ; }
+function usdtobtc() { curl -A cURL -s https://btc.rate.sx/`urlencode "$1"`USD | tee >(pbcopy) ; }
+function btctousd() { curl -A cURL -s https://usd.rate.sx/`urlencode "$1"`BTC| tee >(pbcopy) ; }
 
+# nmap through shodan
+function nmapshodan() {
+    if [ -r ~/.shodan-api ]; then
+        . ~/.shodan-api
+        nmap -sn -Pn -n --script shodan-api --script-args shodan-api.apikey=${SHODAN_APIKEY} $*
+    else
+        echo "Define SHODAN_APIKEY in ~/.shodan-api"
+    fi
+}

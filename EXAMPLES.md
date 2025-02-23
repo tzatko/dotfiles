@@ -296,6 +296,14 @@ PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
 rtt min/avg/max/mdev = 38.366/129.845/411.080/141.874 ms
 ```
 
+`qr` Create QR code and display it on terminal. Without arguments uses clipboard, otherwise
+uses arguments
+
+```
+qr
+qr https://github.com/jooray/dotfiles
+```
+
 `getcertnames` Show all the names (CNs and SANs) listed in the SSL certificate for a given domain
 ```
 /tmp/dotfiles$ getcertnames github.com
